@@ -1,10 +1,23 @@
 import './App.css';
+import { BrowserRouter, Routes , Route } from 'react-router-dom';
+import Sidenav from './components/sideNav';
+import AddDeveloper from './components/addDeverloper';
+import Reservations from './components/reservations';
+import Developers from './components/developers';
+import DeleteDeveloper from './components/deleteDeveloper';
 
 function App() {
   return (
     <div className="App">
-      
-      <h1>Hello world!</h1>
+      <BrowserRouter>
+        <Sidenav />
+        <Routes>
+          <Route path="/" element={<Developers />} />
+          <Route path="/adddeveloper" element={<AddDeveloper />} />
+          <Route path="/deletedeveloper" element={<DeleteDeveloper />} />
+          <Route path="/reservations" element={<Reservations />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
