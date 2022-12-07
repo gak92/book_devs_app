@@ -5,6 +5,7 @@ import AddDeveloper from './components/addDeverloper';
 import Reservations from './components/reservations';
 import Developers from './components/developers';
 import DeleteDeveloper from './components/deleteDeveloper';
+import Login from './components/authentication/login';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <BrowserRouter>
         <Sidenav />
         <Routes>
+          <Route path='/login' element={<Login />} />
           <Route path="/" element={<Developers />} />
           <Route path="/adddeveloper" element={<AddDeveloper />} />
           <Route path="/deletedeveloper" element={<DeleteDeveloper />} />
