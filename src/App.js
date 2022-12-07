@@ -1,11 +1,12 @@
+import { Route, Routes } from 'react-router-dom';
 import './App.css';
+import AddReservations from './components/AddReservations';
 
 function App() {
   return (
-    <div className="App">
-      
-      <h1>Hello world!</h1>
-    </div>
+    <Routes>
+      <Route path="/add_reservation" element={<AddReservations />} />
+    </Routes>
   );
 }
 
