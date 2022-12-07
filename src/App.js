@@ -1,4 +1,5 @@
 import './App.css';
+import "bootstrap/dist/css/bootstrap.min.css"
 import { BrowserRouter, Routes , Route } from 'react-router-dom';
 import Sidenav from './components/sideNav';
 import AddDeveloper from './components/addDeverloper';
