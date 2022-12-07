@@ -1,11 +1,9 @@
-import React from "react";
+import React from 'react';
 
-const DeleteDeveloper = () => {
-    return (
-        <div>
-        <h1>Delete Developer</h1>
-        </div>
-    );
-}
+const DeleteDeveloper = () => (
+  <div>
+    <h1>Delete Developer</h1>
+  </div>
+);
 
 export default DeleteDeveloper;

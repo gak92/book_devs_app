@@ -1,8 +1,9 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
+
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { postLoginDetails } from '../../store/user/auth';
-
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -15,16 +16,16 @@ const Login = () => {
 
   const loginUser = (e) => {
     e.preventDefault();
-    if(email === '' || password === '') return
+    if (email === '' || password === '') return;
 
-    console.log("Email: ", email);
-    console.log("Password: ", password);
-    dispatch(postLoginDetails({email, password}));
+    // console.log('Email: ', email);
+    // console.log('Password: ', password);
+    dispatch(postLoginDetails({ email, password }));
     setEmail('');
     setPassword('');
   };
 
-  if(user.loggedIn) {
+  if (user.loggedIn) {
     navigate('/', { replace: true });
     window.location.reload();
   }
@@ -36,7 +37,7 @@ const Login = () => {
           <h3 className="Auth-form-title">Sign In</h3>
 
           <div className="form-group mt-3">
-            <label>Email address</label>
+            <label htmlFor="email">Email address</label>
             <input
               type="email"
               className="form-control mt-1"
@@ -46,9 +47,9 @@ const Login = () => {
               value={email}
             />
           </div>
-          
+
           <div className="form-group mt-3">
-            <label>Password</label>
+            <label htmlFor="password">Password</label>
             <input
               type="password"
               className="form-control mt-1"
@@ -58,7 +59,7 @@ const Login = () => {
               value={password}
             />
           </div>
-          
+
           <div className="d-grid gap-2 mt-3">
             <button type="submit" className="btn btn-primary">
               Submit

@@ -1,5 +1,5 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "axios";
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import axios from 'axios';
 
 const signupURL = 'http://127.0.0.1:3000/users';
 const loginURL = 'http://localhost:3000/users/sign_in';
@@ -22,23 +22,25 @@ const SIGNUP = 'user/signup';
 export const postSignupDetails = createAsyncThunk(
   SIGNUP,
   async (signupDetails) => {
-    const { fullName, email, password, confirmPassword } = signupDetails;
+    const {
+      fullName, email, password, confirmPassword,
+    } = signupDetails;
     const response = await axios.post(signupURL, {
       user: {
         name: fullName,
         email,
         password,
         password_confirmation: confirmPassword,
-      }
+      },
     });
 
     const { data, headers } = response;
 
     const userData = data.status.data;
-    console.log("userData: ", userData);
+    // console.log('userData: ', userData);
 
     const { authorization } = headers;
-    console.log("Authorization: ", authorization);
+    // console.log('Authorization: ', authorization);
 
     const currentUser = {
       name: userData.name,
@@ -59,10 +61,11 @@ export const postLoginDetails = createAsyncThunk(
   LOGIN,
   async (loginDetails) => {
     const { email, password } = loginDetails;
-    const response = await axios.post(loginURL, { user: {
+    const response = await axios.post(loginURL, {
+      user: {
         email,
         password,
-      }
+      },
     });
     // console.log("Response: ", response);
     const { data, headers } = response;
@@ -70,12 +73,12 @@ export const postLoginDetails = createAsyncThunk(
 
     const { status } = data;
     // console.log("Status: ", status);
-    
+
     const userData = status.data;
-    console.log("User Data: ", userData);
+    // console.log('User Data: ', userData);
 
     const { authorization } = headers;
-    console.log("Authorization: ", authorization);
+    // console.log('Authorization: ', authorization);
 
     const currentUser = {
       name: userData.name,
@@ -95,13 +98,14 @@ export const postLoginDetails = createAsyncThunk(
 export const userLogout = createAsyncThunk(
   LOGOUT,
   async (userAuth) => {
-    const response = await axios.delete(logoutURL, {
+    // const response =
+    await axios.delete(logoutURL, {
       headers: {
         Authorization: userAuth,
       },
     });
 
-    console.log("Logout Response: ", response);
+    // console.log('Logout Response: ', response);
     localStorage.removeItem('userAuth');
   },
 );
@@ -118,7 +122,7 @@ export const authSlice = createSlice({
       email: action.payload.email,
       userId: action.payload.userId,
       loggedIn: action.payload.loggedIn,
-      signedUp: action.payload.signedUp
+      signedUp: action.payload.signedUp,
     }),
     [postSignupDetails.fulfilled]: (state, action) => ({
       ...state,
@@ -126,7 +130,7 @@ export const authSlice = createSlice({
       email: action.payload.email,
       userId: action.payload.userId,
       loggedIn: action.payload.loggedIn,
-      signedUp: action.payload.signedUp
+      signedUp: action.payload.signedUp,
     }),
   },
 });

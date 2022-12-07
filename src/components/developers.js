@@ -1,11 +1,9 @@
-import React from "react";
+import React from 'react';
 
-const Developers = () => {
-    return (
-        <div>
-        <h1>Developers</h1>
-        </div>
-    );
-}
+const Developers = () => (
+  <div>
+    <h1>Developers</h1>
+  </div>
+);
 
 export default Developers;

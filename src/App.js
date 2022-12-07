@@ -1,6 +1,6 @@
 import './App.css';
-import "bootstrap/dist/css/bootstrap.min.css"
-import { BrowserRouter, Routes , Route } from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Sidenav from './components/sideNav';
 import AddDeveloper from './components/addDeverloper';
 import Reservations from './components/reservations';
@@ -15,8 +15,8 @@ function App() {
       <BrowserRouter>
         <Sidenav />
         <Routes>
-          <Route path='/login' element={<Login />} />
-          <Route path='/register' element={<Register />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
           <Route path="/" element={<Developers />} />
           <Route path="/adddeveloper" element={<AddDeveloper />} />
           <Route path="/deletedeveloper" element={<DeleteDeveloper />} />

@@ -1,5 +1,6 @@
-import React from 'react';
-import { useState } from 'react';
+/* eslint-disable jsx-a11y/label-has-associated-control */
+
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { postSignupDetails } from '../../store/user/auth';
@@ -15,17 +16,19 @@ const Register = () => {
 
   const signupUser = (e) => {
     e.preventDefault();
-    if(fullName === '' || email === '' || password === '') return
+    if (fullName === '' || email === '' || password === '') return;
 
-    console.log(fullName, email, password);
-    dispatch(postSignupDetails({fullName, email, password, confirmPassword}));
+    // console.log(fullName, email, password);
+    dispatch(postSignupDetails({
+      fullName, email, password, confirmPassword,
+    }));
     setFullName('');
     setEmail('');
     setPassword('');
     setConfirmPassword('');
   };
 
-  if(user.signedUp) {
+  if (user.signedUp) {
     navigate('/', { replace: true });
     window.location.reload();
   }
@@ -35,16 +38,17 @@ const Register = () => {
       <form className="Auth-form">
         <div className="Auth-form-content">
           <h3 className="Auth-form-title">Sign Up</h3>
-          
+
           <div className="text-center">
-            Already registered?{" "}
+            Already registered?
+            {' '}
             <span className="link-primary">
               Sign In
             </span>
           </div>
-          
+
           <div className="form-group mt-3">
-            <label>Full Name</label>
+            <label htmlFor="fullname">Full Name</label>
             <input
               type="text"
               className="form-control mt-1"
@@ -54,9 +58,9 @@ const Register = () => {
               value={fullName}
             />
           </div>
-          
+
           <div className="form-group mt-3">
-            <label>Email address</label>
+            <label htmlFor="email">Email address</label>
             <input
               type="email"
               className="form-control mt-1"
@@ -68,7 +72,7 @@ const Register = () => {
           </div>
 
           <div className="form-group mt-3">
-            <label>Password</label>
+            <label htmlFor="password">Password</label>
             <input
               type="password"
               className="form-control mt-1"
@@ -80,7 +84,7 @@ const Register = () => {
           </div>
 
           <div className="form-group mt-3">
-            <label>Confirm Password</label>
+            <label htmlFor="confirm_password">Confirm Password</label>
             <input
               type="password"
               className="form-control mt-1"
@@ -96,7 +100,7 @@ const Register = () => {
               Submit
             </button>
           </div>
-          
+
         </div>
       </form>
     </section>
