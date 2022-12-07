@@ -1,8 +1,35 @@
 import React from 'react';
+import { useState } from 'react';
+import { Navigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { postSignupDetails } from '../../store/user/auth';
 
 const Register = () => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [fullName, setFullName] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const dispatch = useDispatch();
+  const user = useSelector((state) => state.authentication);
+
+  const signupUser = (e) => {
+    e.preventDefault();
+    if(fullName === '' || email === '' || password === '') return
+
+    console.log(fullName, email, password);
+    dispatch(postSignupDetails({fullName, email, password, confirmPassword}));
+    setFullName('');
+    setEmail('');
+    setPassword('');
+    setConfirmPassword('');
+  };
+
+  if(user.signedUp) {
+    return <Navigate replace to="/" />;
+  }
+
   return (
-    <section className="Auth-form-container">
+    <section className="Auth-form-container" onSubmit={signupUser}>
       <form className="Auth-form">
         <div className="Auth-form-content">
           <h3 className="Auth-form-title">Sign Up</h3>
@@ -17,9 +44,12 @@ const Register = () => {
           <div className="form-group mt-3">
             <label>Full Name</label>
             <input
-              type="email"
+              type="text"
               className="form-control mt-1"
               placeholder="e.g Jane Doe"
+              id="fullname"
+              onChange={(e) => setFullName(e.target.value)}
+              value={fullName}
             />
           </div>
           
@@ -29,6 +59,9 @@ const Register = () => {
               type="email"
               className="form-control mt-1"
               placeholder="Email Address"
+              id="email"
+              onChange={(e) => setEmail(e.target.value)}
+              value={email}
             />
           </div>
 
@@ -38,6 +71,21 @@ const Register = () => {
               type="password"
               className="form-control mt-1"
               placeholder="Password"
+              id="password"
+              onChange={(e) => setPassword(e.target.value)}
+              value={password}
+            />
+          </div>
+
+          <div className="form-group mt-3">
+            <label>Confirm Password</label>
+            <input
+              type="password"
+              className="form-control mt-1"
+              placeholder="Confirm Password"
+              id="confirm_password"
+              onChange={(e) => setConfirmPassword(e.target.value)}
+              value={confirmPassword}
             />
           </div>
 
