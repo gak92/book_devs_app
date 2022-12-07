@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Navigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { postLoginDetails } from '../../store/user/auth';
 
@@ -9,6 +9,7 @@ const Login = () => {
   const [password, setPassword] = useState('');
   const dispatch = useDispatch();
   const user = useSelector((state) => state.authentication);
+  const navigate = useNavigate();
 
   // console.log("user: ", user);
 
@@ -24,7 +25,8 @@ const Login = () => {
   };
 
   if(user.loggedIn) {
-    return <Navigate replace to="/" />;
+    navigate('/', { replace: true });
+    window.location.reload();
   }
 
   return (

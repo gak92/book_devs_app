@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
-import { Navigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { postSignupDetails } from '../../store/user/auth';
 
@@ -11,6 +11,7 @@ const Register = () => {
   const [confirmPassword, setConfirmPassword] = useState('');
   const dispatch = useDispatch();
   const user = useSelector((state) => state.authentication);
+  const navigate = useNavigate();
 
   const signupUser = (e) => {
     e.preventDefault();
@@ -25,7 +26,8 @@ const Register = () => {
   };
 
   if(user.signedUp) {
-    return <Navigate replace to="/" />;
+    navigate('/', { replace: true });
+    window.location.reload();
   }
 
   return (

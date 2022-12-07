@@ -6,8 +6,14 @@ import { userLogout } from '../store/user/auth';
 
 
 const Sidenav = () => {
-	const authuser = localStorage.getItem('userAuth');
+	let userAuth = localStorage.getItem('userAuth');
 	const dispatch = useDispatch();
+
+	const logoutUser = () => {
+		dispatch(userLogout(userAuth));
+		// console.log("userAuth", userAuth);
+		// userAuth = '';
+	};
 
   return (
     <nav className="sidenav">
@@ -17,9 +23,9 @@ const Sidenav = () => {
                     Developers
                 </NavLink>
             </li>
-						{authuser ? 
+						{userAuth ? 
 							(<li>
-                <NavLink to="/login" onClick={() => dispatch(userLogout(authuser))} >
+                <NavLink to="/login" onClick={() => logoutUser() } >
                     Logout
                 </NavLink>
             	</li>) 
