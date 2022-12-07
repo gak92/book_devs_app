@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-const baseURL = 'http://127.0.0.1:3000';
+const signupURL = 'http://127.0.0.1:3000/users';
 const loginURL = 'http://localhost:3000/users/sign_in';
 const logoutURL = 'http://localhost:3000/users/sign_out';
 
@@ -9,12 +9,50 @@ const initialState = {
   name: '',
   email: '',
   userId: '',
-  loggedIn: false
+  loggedIn: false,
+  signedUp: false,
 };
 
 // Action Types
 const LOGIN = 'user/login';
-const LOGOUT = 'user/logout'
+const LOGOUT = 'user/logout';
+const SIGNUP = 'user/signup';
+
+// Action Creator (User Sign Up)
+export const postSignupDetails = createAsyncThunk(
+  SIGNUP,
+  async (signupDetails) => {
+    const { fullName, email, password, confirmPassword } = signupDetails;
+    const response = await axios.post(signupURL, {
+      user: {
+        name: fullName,
+        email,
+        password,
+        password_confirmation: confirmPassword,
+      }
+    });
+
+    const { data, headers } = response;
+
+    const userData = data.status.data;
+    console.log("userData: ", userData);
+
+    const { authorization } = headers;
+    console.log("Authorization: ", authorization);
+
+    const currentUser = {
+      name: userData.name,
+      email: userData.email,
+      userId: userData.id,
+      loggedIn: true,
+      signedUp: true,
+    };
+
+    localStorage.setItem('userAuth', JSON.stringify(authorization));
+
+    return currentUser;
+  },
+);
 
 // Action Creator (User Log In)
 export const postLoginDetails = createAsyncThunk(
@@ -44,6 +82,7 @@ export const postLoginDetails = createAsyncThunk(
       email: userData.email,
       userId: userData.id,
       loggedIn: true,
+      signedUp: true,
     };
 
     localStorage.setItem('userAuth', JSON.stringify(authorization));
@@ -79,6 +118,15 @@ export const authSlice = createSlice({
       email: action.payload.email,
       userId: action.payload.userId,
       loggedIn: action.payload.loggedIn,
+      signedUp: action.payload.signedUp
+    }),
+    [postSignupDetails.fulfilled]: (state, action) => ({
+      ...state,
+      name: action.payload.name,
+      email: action.payload.email,
+      userId: action.payload.userId,
+      loggedIn: action.payload.loggedIn,
+      signedUp: action.payload.signedUp
     }),
   },
 });
