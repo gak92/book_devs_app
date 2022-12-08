@@ -1,6 +1,6 @@
 // @flow
 import * as React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { userLogout } from '../store/user/auth';
 
@@ -8,10 +8,11 @@ const Sidenav = () => {
   const userAuth = localStorage.getItem('userAuth');
   const dispatch = useDispatch();
 
+	const authState = useSelector((state) => state.authentication);
+	console.log(authState);
+
   const logoutUser = () => {
     dispatch(userLogout(userAuth));
-    // console.log("userAuth", userAuth);
-    // userAuth = '';
   };
 
   return (
@@ -22,7 +23,7 @@ const Sidenav = () => {
             Developers
           </NavLink>
         </li>
-        {userAuth ? (
+        {authState.loggedIn ? (
           <li>
             <NavLink to="/login" onClick={() => logoutUser()}>
               Logout

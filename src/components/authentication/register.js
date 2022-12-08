@@ -18,7 +18,6 @@ const Register = () => {
     e.preventDefault();
     if (fullName === '' || email === '' || password === '') return;
 
-    // console.log(fullName, email, password);
     dispatch(postSignupDetails({
       fullName, email, password, confirmPassword,
     }));
@@ -30,7 +29,6 @@ const Register = () => {
 
   if (user.signedUp) {
     navigate('/', { replace: true });
-    window.location.reload();
   }
 
   return (
@@ -55,6 +53,7 @@ const Register = () => {
               type="text"
               className="form-control mt-1"
               placeholder="e.g Jane Doe"
+              required
               id="fullname"
               onChange={(e) => setFullName(e.target.value)}
               value={fullName}
@@ -67,6 +66,7 @@ const Register = () => {
               type="email"
               className="form-control mt-1"
               placeholder="Email Address"
+              required
               id="email"
               onChange={(e) => setEmail(e.target.value)}
               value={email}
@@ -79,6 +79,7 @@ const Register = () => {
               type="password"
               className="form-control mt-1"
               placeholder="Password"
+              required
               id="password"
               onChange={(e) => setPassword(e.target.value)}
               value={password}
@@ -91,6 +92,7 @@ const Register = () => {
               type="password"
               className="form-control mt-1"
               placeholder="Confirm Password"
+              required
               id="confirm_password"
               onChange={(e) => setConfirmPassword(e.target.value)}
               value={confirmPassword}

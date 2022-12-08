@@ -12,14 +12,10 @@ const Login = () => {
   const user = useSelector((state) => state.authentication);
   const navigate = useNavigate();
 
-  // console.log("user: ", user);
-
   const loginUser = (e) => {
     e.preventDefault();
     if (email === '' || password === '') return;
 
-    // console.log('Email: ', email);
-    // console.log('Password: ', password);
     dispatch(postLoginDetails({ email, password }));
     setEmail('');
     setPassword('');
@@ -27,7 +23,6 @@ const Login = () => {
 
   if (user.loggedIn) {
     navigate('/', { replace: true });
-    window.location.reload();
   }
 
   return (
@@ -36,12 +31,24 @@ const Login = () => {
         <div className="Auth-form-content">
           <h3 className="Auth-form-title">Sign In</h3>
 
+          {/* if there is error when signing in */}
+          {user.error && (
+            <div className="alert alert-danger" role="alert">
+              {user.error.message === 'Request failed with status code 401' ? (
+                <p>Invalid email or password</p>
+              ) : (
+                <p>{user.error.message}</p>
+              )}
+            </div>
+          )}
+
           <div className="form-group mt-3">
             <label htmlFor="email">Email address</label>
             <input
               type="email"
               className="form-control mt-1"
               placeholder="Enter email"
+              required
               id="email"
               onChange={(e) => setEmail(e.target.value)}
               value={email}
@@ -54,6 +61,7 @@ const Login = () => {
               type="password"
               className="form-control mt-1"
               placeholder="Enter password"
+              required
               id="password"
               onChange={(e) => setPassword(e.target.value)}
               value={password}

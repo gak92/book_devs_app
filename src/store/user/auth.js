@@ -9,6 +9,7 @@ const initialState = {
   name: '',
   email: '',
   userId: '',
+  error: '',
   loggedIn: false,
   signedUp: false,
 };
@@ -35,12 +36,8 @@ export const postSignupDetails = createAsyncThunk(
     });
 
     const { data, headers } = response;
-
     const userData = data.status.data;
-    // console.log('userData: ', userData);
-
     const { authorization } = headers;
-    // console.log('Authorization: ', authorization);
 
     const currentUser = {
       name: userData.name,
@@ -67,18 +64,10 @@ export const postLoginDetails = createAsyncThunk(
         password,
       },
     });
-    // console.log("Response: ", response);
     const { data, headers } = response;
-    // console.log("Data: ", data);
-
     const { status } = data;
-    // console.log("Status: ", status);
-
     const userData = status.data;
-    // console.log('User Data: ', userData);
-
     const { authorization } = headers;
-    // console.log('Authorization: ', authorization);
 
     const currentUser = {
       name: userData.name,
@@ -105,7 +94,6 @@ export const userLogout = createAsyncThunk(
       },
     });
 
-    // console.log('Logout Response: ', response);
     localStorage.removeItem('userAuth');
   },
 );
@@ -124,6 +112,10 @@ export const authSlice = createSlice({
       loggedIn: action.payload.loggedIn,
       signedUp: action.payload.signedUp,
     }),
+    [postLoginDetails.rejected]: (state, action) => ({
+      ...state,
+      error: action.error,
+    }),
     [postSignupDetails.fulfilled]: (state, action) => ({
       ...state,
       name: action.payload.name,
@@ -132,6 +124,19 @@ export const authSlice = createSlice({
       loggedIn: action.payload.loggedIn,
       signedUp: action.payload.signedUp,
     }),
+    [postSignupDetails.rejected]: (state, action) => ({
+      ...state,
+      error: action.error,
+    }),
+    [userLogout.fulfilled]: (state, action) => ({
+      ...state,
+      name: '',
+      email: '',
+      userId: '',
+      loggedIn: false,
+      signedUp: false,
+      error: '',
+    })
   },
 });
 
