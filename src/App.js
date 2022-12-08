@@ -7,6 +7,7 @@ import DisplayAllDevs from './components/devs/displayAllDevs';
 import Login from './components/authentication/login';
 import Register from './components/authentication/register';
 import Splash from './components/splash';
+import AddDeveloper from './components/devs/addDeveloper';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path="/" element={<Splash />} />
           <Route path="/developers" element={<DisplayAllDevs />} />
           <Route path="/reservations" element={<Reservations />} />
+          <Route path="/adddeveloper" element={<AddDeveloper />} />
         </Routes>
       </BrowserRouter>
     </div>
