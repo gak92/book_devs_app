@@ -8,8 +8,7 @@ const Sidenav = () => {
   const userAuth = localStorage.getItem('userAuth');
   const dispatch = useDispatch();
 
-	const authState = useSelector((state) => state.authentication);
-	console.log(authState);
+  const authState = useSelector((state) => state.authentication);
 
   const logoutUser = () => {
     dispatch(userLogout(userAuth));

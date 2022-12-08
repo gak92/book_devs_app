@@ -135,8 +135,8 @@ export const authSlice = createSlice({
       userId: '',
       loggedIn: false,
       signedUp: false,
-      error: '',
-    })
+      error: action.error,
+    }),
   },
 });
 
