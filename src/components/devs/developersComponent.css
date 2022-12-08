@@ -31,16 +31,10 @@
   align-items: center;
   position: relative;
 }
- .card0 img {
+
+.card0 img {
   width: 100%;
   height: 80%;
-} 
-
-.card0:hover h2 {
-  opacity: 1;
-}
-.card0:hover .fa {
-  opacity: 1;
 }
 
 h2 {
@@ -50,10 +44,20 @@ h2 {
   opacity: 0;
   transition: opacity 1s;
 }
+
+.card0:hover h2 {
+  opacity: 1;
+}
+
 .fa {
   opacity: 0;
   transition: opacity 1s;
 }
+
+.card0:hover .fa {
+  opacity: 1;
+}
+
 .icons {
   position: absolute;
   fill: #fff;
