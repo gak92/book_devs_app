@@ -18,45 +18,37 @@ const Sidenav = () => {
     <nav className="sidenav">
       <ul>
         <li>
-          <NavLink to="/">
-            Developers
-          </NavLink>
+          <NavLink to="/developers">Developers</NavLink>
         </li>
+
+        <li>
+          <NavLink to="/">Splash</NavLink>
+        </li>
+
         {authState.loggedIn ? (
           <li>
             <NavLink to="/login" onClick={() => logoutUser()}>
               Logout
             </NavLink>
           </li>
-        )
-          : (
-            <>
-              <li>
-                <NavLink to="/login">
-                  Login
-                </NavLink>
-              </li>
-              <li>
-                <NavLink to="/register">
-                  Register
-                </NavLink>
-              </li>
-            </>
-          )}
+        ) : (
+          <>
+            <li>
+              <NavLink to="/login">Login</NavLink>
+            </li>
+            <li>
+              <NavLink to="/register">Register</NavLink>
+            </li>
+          </>
+        )}
         <li>
-          <NavLink to="/adddeveloper">
-            Add Developer
-          </NavLink>
+          <NavLink to="/adddeveloper">Add Developer</NavLink>
         </li>
         <li>
-          <NavLink to="/reservations">
-            My Reservations
-          </NavLink>
+          <NavLink to="/reservations">My Reservations</NavLink>
         </li>
         <li>
-          <NavLink to="/deletedeveloper">
-            Delete Developer
-          </NavLink>
+          <NavLink to="/deletedeveloper">Delete Developer</NavLink>
         </li>
       </ul>
     </nav>

@@ -1,31 +1,25 @@
-import React, { useEffect } from "react";
-import axios from "axios";
-import { useDispatch, useSelector } from "react-redux";
-import DevelopersComponent from "./developersComponent";
-import { getDevelopers } from "../../redux";
+import React, { useEffect } from 'react';
+import axios from 'axios';
+import { useDispatch } from 'react-redux';
+import DevelopersComponent from './developersComponent';
+import { getDevelopers } from '../../store/developers';
 
 function DisplayAllDevs() {
-  const developers = useSelector((state) => state.developer.developers);
-
   const dispatch = useDispatch();
 
   const fetchDevelopers = async () => {
     const response = await axios
-      .get("http://127.0.0.1:3000/api/v1/developers")
-      .then((res) => {
-        return res.data;
-      })
-      .catch((error) => {
-        console.log("error", error);
-      });
+      .get('http://127.0.0.1:3000/api/v1/developers')
+      .then((res) => res.data)
+      .catch((error) => error.message);
     dispatch(getDevelopers(response));
   };
 
   useEffect(() => {
     fetchDevelopers();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  console.log("developers:", developers);
   return (
     <div>
       <h1>Here is Developers listing...</h1>

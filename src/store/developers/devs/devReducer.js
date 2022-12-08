@@ -1,5 +1,5 @@
 /* eslint-disable import/prefer-default-export */
-import * as types from "./devTypes";
+import * as types from './devTypes';
 
 const initialState = {
   loading: false,
@@ -14,7 +14,7 @@ const developerReducer = (state = initialState, action) => {
       return {
         ...state,
         loading: false,
-        developers: action.payload
+        developers: action.payload,
       };
     case types.GET_DEVELOPERS_FAIL:
       return { ...state, loading: false, error: action.payload };
