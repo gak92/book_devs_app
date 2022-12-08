@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { postLoginDetails } from '../../store/user/auth';
 
@@ -64,6 +64,16 @@ const Login = () => {
             <button type="submit" className="btn btn-primary">
               Submit
             </button>
+          </div>
+
+          <div className="text-center mt-3">
+            Don't have an account?
+            {' '}
+            <span className="link-primary">
+              <NavLink to="/register">
+                Sign Up
+              </NavLink>
+            </span>
           </div>
 
         </div>

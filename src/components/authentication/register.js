@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { postSignupDetails } from '../../store/user/auth';
 
@@ -43,7 +43,9 @@ const Register = () => {
             Already registered?
             {' '}
             <span className="link-primary">
-              Sign In
+              <NavLink to="/login">
+                Sign In
+              </NavLink>
             </span>
           </div>
 
