@@ -1,10 +1,13 @@
 import './App.css';
-import { BrowserRouter, Routes , Route } from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Sidenav from './components/sideNav';
 import AddDeveloper from './components/addDeverloper';
 import Reservations from './components/reservations';
 import Developers from './components/developers';
 import DeleteDeveloper from './components/deleteDeveloper';
+import Login from './components/authentication/login';
+import Register from './components/authentication/register';
 
 function App() {
   return (
@@ -12,6 +15,8 @@ function App() {
       <BrowserRouter>
         <Sidenav />
         <Routes>
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
           <Route path="/" element={<Developers />} />
           <Route path="/adddeveloper" element={<AddDeveloper />} />
           <Route path="/deletedeveloper" element={<DeleteDeveloper />} />
