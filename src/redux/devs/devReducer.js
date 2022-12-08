@@ -6,12 +6,16 @@ const initialState = {
   developers: [],
 };
 
-const devReducer = (state = initialState, action) => {
+const developerReducer = (state = initialState, action) => {
   switch (action.type) {
     case types.GET_DEVELOPERS_REQUEST:
       return { ...state, loading: true };
     case types.GET_DEVELOPERS_SUCCESS:
-      return { ...state, loading: false, developers: action.payload };
+      return {
+        ...state,
+        loading: false,
+        developers: action.payload
+      };
     case types.GET_DEVELOPERS_FAIL:
       return { ...state, loading: false, error: action.payload };
     case types.ADD_DEVELOPER:
@@ -25,4 +29,4 @@ const devReducer = (state = initialState, action) => {
   }
 };
 
-export default devReducer;
+export default developerReducer;
