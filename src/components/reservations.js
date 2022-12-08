@@ -18,7 +18,7 @@ const Reservations = () => {
 
   // console.log(reservations);
   return (
-  // list of reservations
+    // list of reservations
     <div>
       <h1>Reservations</h1>
       <ul>
@@ -31,7 +31,6 @@ const Reservations = () => {
         ))}
       </ul>
     </div>
-
   );
 };
 
