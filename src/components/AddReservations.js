@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { addReservation } from '../store/addReservations';
+import { addReservation } from '../store/reservations/addReservations';
 
 const AddReservations = () => {
   const dispatch = useDispatch();
   const [state, setState] = useState({
     name: '',
-    reservation_date: '',
+    reservationDate: '',
     city: '',
-    user_id: 1,
-    developer_id: 1,
+    userId: 1,
+    developerId: 1,
   });
 
   const handle = (e) => {
@@ -22,10 +22,10 @@ const AddReservations = () => {
     dispatch(addReservation(state));
     setState({
       name: '',
-      reservation_date: '',
+      reservationDate: '',
       city: '',
-      user_id: 1,
-      developer_id: 1,
+      userId: 1,
+      developerId: 1,
     });
   };
 
@@ -41,8 +41,8 @@ const AddReservations = () => {
           placeholder="Reservation name"
         />
         <input
-          name="reservation_date"
-          value={state.reservation_date}
+          name="reservationDate"
+          value={state.reservationDate}
           onChange={handle}
           type="text"
           placeholder="Reservation date"

@@ -5,12 +5,11 @@ const ADD_RESERVATION = 'book_devs/ADD_RESERVATION';
 
 export const addReservation = createAsyncThunk(ADD_RESERVATION, async (
   {
-    name, reservation_date, city, user_id, developer_id,
+    name, reservationDate, city, userId, developerId,
   },
-  thunkAPI,
 ) => {
   const data = {
-    name, reservation_date, city, user_id, developer_id,
+    name, reservation_date: reservationDate, city, user_id: userId, developer_id: developerId,
   };
 
   await fetch(url, {
