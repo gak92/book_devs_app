@@ -3,6 +3,7 @@ import * as React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { userLogout } from '../store/user/auth';
+import Logo from '../logo.png';
 
 const Sidenav = () => {
   const userAuth = localStorage.getItem('userAuth');
@@ -15,42 +16,28 @@ const Sidenav = () => {
   };
 
   return (
-    <nav className="sidenav">
-      <ul>
-        <li>
+    <nav className="sidebar">
+      <div className="logo">
+        <img width="30%" src={Logo} alt="Logo" />
+        <hr />
+      </div>
+      <NavLink to="/">Home Page</NavLink>
+      {authState.loggedIn ? (
+        <>
           <NavLink to="/developers">Developers</NavLink>
-        </li>
-
-        <li>
-          <NavLink to="/">Splash</NavLink>
-        </li>
-
-        {authState.loggedIn ? (
-          <li>
-            <NavLink to="/login" onClick={() => logoutUser()}>
-              Logout
-            </NavLink>
-          </li>
-        ) : (
-          <>
-            <li>
-              <NavLink to="/login">Login</NavLink>
-            </li>
-            <li>
-              <NavLink to="/register">Register</NavLink>
-            </li>
-          </>
-        )}
-        <li>
           <NavLink to="/adddeveloper">Add Developer</NavLink>
-        </li>
-        <li>
           <NavLink to="/reservations">My Reservations</NavLink>
-        </li>
-        <li>
           <NavLink to="/deletedeveloper">Delete Developer</NavLink>
-        </li>
-      </ul>
+          <NavLink to="/login" onClick={() => logoutUser()}>
+            Logout
+          </NavLink>
+        </>
+      ) : (
+        <>
+          <NavLink to="/login">Login</NavLink>
+          <NavLink to="/register">Register</NavLink>
+        </>
+      )}
     </nav>
   );
 };

@@ -19,7 +19,7 @@ const Reservations = () => {
   // console.log(reservations);
   return (
     // list of reservations
-    <div>
+    <div className="content">
       <h1>Reservations</h1>
       <ul>
         {reservations.map((reservation) => (
