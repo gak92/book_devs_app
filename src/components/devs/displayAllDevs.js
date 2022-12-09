@@ -21,7 +21,7 @@ function DisplayAllDevs() {
   }, []);
 
   return (
-    <div>
+    <div className="content">
       <h1>Here is Developers listing...</h1>
       <div className="d-flex">
         <DevelopersComponent />
