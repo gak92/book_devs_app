@@ -31,7 +31,7 @@ const AddReservations = () => {
 
   return (
     <>
-      <h2 >ADD RESERVATION</h2>
+      <h2>ADD RESERVATION</h2>
       <form onSubmit={handleSubmit}>
         <input
           name="name"

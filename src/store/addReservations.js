@@ -4,7 +4,9 @@ const url = 'http://localhost:3000/api/v1/reservations';
 const ADD_RESERVATION = 'book_devs/ADD_RESERVATION';
 
 export const addReservation = createAsyncThunk(ADD_RESERVATION, async (
-  { name, reservation_date, city, user_id, developer_id },
+  {
+    name, reservation_date, city, user_id, developer_id,
+  },
   thunkAPI,
 ) => {
   const data = {
@@ -15,10 +17,8 @@ export const addReservation = createAsyncThunk(ADD_RESERVATION, async (
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(data),
-  })
-    
+  });
 });
-
 
 const storeSlice = createSlice({
   name: 'book_devs',
