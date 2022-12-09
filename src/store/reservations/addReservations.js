@@ -12,9 +12,14 @@ export const addReservation = createAsyncThunk(ADD_RESERVATION, async (
     name, reservation_date: reservationDate, city, user_id: userId, developer_id: developerId,
   };
 
+  const userAuth = localStorage.getItem('userAuth');
+
   await fetch(url, {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: userAuth,
+    },
     body: JSON.stringify(data),
   });
 });
