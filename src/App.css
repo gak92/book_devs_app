@@ -66,9 +66,9 @@ label {
   padding: 10px;
   text-decoration: none;
 }
- 
+
 .sidebar a.active {
-  background-color: #99CC00;
+  background-color: #99cc00;
   color: white;
 }
 
@@ -89,8 +89,8 @@ div.content {
     height: auto;
     position: relative;
   }
-  .sidebar a {float: left;}
-  div.content {margin-left: 0;}
+  .sidebar a { float: left; }
+  div.content { margin-left: 0; }
 }
 
 @media screen and (max-width: 400px) {
@@ -98,5 +98,4 @@ div.content {
     text-align: center;
     float: none;
   }
-
 }
