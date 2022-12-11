@@ -75,6 +75,7 @@ export const postLoginDetails = createAsyncThunk(
       userId: userData.id,
       loggedIn: true,
       signedUp: true,
+      admin: userData.admin,
     };
 
     localStorage.setItem('userAuth', JSON.stringify(authorization));
@@ -111,6 +112,7 @@ export const authSlice = createSlice({
       userId: action.payload.userId,
       loggedIn: action.payload.loggedIn,
       signedUp: action.payload.signedUp,
+      admin: action.payload.admin,
     }),
     [postLoginDetails.rejected]: (state, action) => ({
       ...state,
@@ -123,6 +125,7 @@ export const authSlice = createSlice({
       userId: action.payload.userId,
       loggedIn: action.payload.loggedIn,
       signedUp: action.payload.signedUp,
+      admin: action.payload.admin,
     }),
     [postSignupDetails.rejected]: (state, action) => ({
       ...state,
@@ -136,6 +139,7 @@ export const authSlice = createSlice({
       loggedIn: false,
       signedUp: false,
       error: action.error,
+      admin: false,
     }),
   },
 });
