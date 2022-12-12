@@ -11,12 +11,12 @@ Login and SignUp Form CSS
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100vw;
-  height: 100vh;
 }
 
 .Auth-form {
-  width: 420px;
+  margin-top: 10%;
+  width: 60%;
+  max-width: 400px;
   box-shadow: rgb(0 0 0 / 16%) 1px 1px 10px;
   padding-top: 30px;
   padding-bottom: 20px;
@@ -43,59 +43,26 @@ label {
   color: rgb(34, 34, 34);
 }
 
-/* Side Nav */
+/* sidebar */
 
-.sidebar {
-  margin: 0;
-  padding: 0;
-  width: 200px;
-  background-color: #f1f1f1;
-  position: fixed;
-  height: 100%;
-  overflow: auto;
+.iaPPJZ {
+  box-shadow: rgb(0 0 0 / 16%) 1px 1px 10px;
+  background-color: #fff;
+  color: #000;
 }
 
-.logo {
-  text-align: center;
-  padding: 15px;
+.active .sc-hTBuwn {
+  background-color: #96bf10;
+  color: #fff;
 }
 
-.sidebar a {
-  display: block;
-  color: black;
-  padding: 10px;
-  text-decoration: none;
+.sc-hTBuwn .fa,
+.sc-cOxWqc .fa {
+  opacity: 1;
 }
 
-.sidebar a.active {
-  background-color: #9c0;
-  color: white;
-}
-
-.sidebar a:hover:not(.active) {
-  background-color: #555;
-  color: white;
-}
-
-div.content {
-  margin-left: 200px;
-  padding: 1px 16px;
-  height: 1000px;
-}
-
-@media screen and (max-width: 700px) {
-  .sidebar {
-    width: 100%;
-    height: auto;
-    position: relative;
-  }
-  .sidebar a { float: left; }
-  div.content { margin-left: 0; }
-}
-
-@media screen and (max-width: 400px) {
-  .sidebar a {
-    text-align: center;
-    float: none;
+@media screen and (max-width: 768px) {
+  .Auth-form {
+    width: 80%;
   }
 }
