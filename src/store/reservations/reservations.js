@@ -1,26 +1,35 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import axios from 'axios';
 
 const RESERVATIONS_URL = 'http://localhost:3000/api/v1/reservations';
 
 const FETCH_RESERVATIONS = 'reservations/fetchReservations';
 const DELETE_RESERVATION = 'reservations/deleteReservation';
+const userAuth = localStorage.getItem('userAuth');
 
 export const fetchReservations = createAsyncThunk(
   FETCH_RESERVATIONS,
-  async (userId) => {
-    const response = await fetch(RESERVATIONS_URL);
-    const data = await response.json();
-    return data.filter((reservation) => reservation.user_id === userId);
+  async () => {
+    const response = await axios.get(RESERVATIONS_URL, {
+      headers: {
+        Authorization: userAuth,
+      },
+    });
+    const data = await response.data;
+    return data;
   },
 );
 
 export const deleteReservation = createAsyncThunk(
   DELETE_RESERVATION,
   async (id) => {
-    const response = await fetch(`${RESERVATIONS_URL}/${id}`, {
+    const response = await axios.delete(`${RESERVATIONS_URL}/${id}`, {
       method: 'DELETE',
+      headers: {
+        Authorization: userAuth,
+      },
     });
-    const data = await response.json();
+    const data = await response.data;
     return data;
   },
 );

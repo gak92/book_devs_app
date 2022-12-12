@@ -6,9 +6,9 @@ const Reservations = () => {
   const dispatch = useDispatch();
   const reservations = useSelector((state) => state.reservations.reservations);
   const authState = useSelector((state) => state.authentication);
-
+  const userAuth = localStorage.getItem('userAuth');
   useEffect(() => {
-    dispatch(fetchReservations(authState.userId));
+    dispatch(fetchReservations());
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -19,12 +19,11 @@ const Reservations = () => {
 
   return (
     <>
-      { authState.loggedIn ? (
+      { (userAuth || authState.loggedIn) ? (
         <div>
-          <h1 className="text-center mt-5">My Reservations</h1>
           <div className="d-flex justify-content-between flex-wrap mt-5 mx-5 gap-4">
             { reservations.length === 0 && (
-            <h1 className="text-center">You have no reservations</h1>
+            <h1 className="text-center my-auto">You have no reservations</h1>
             )}
             {reservations.map((reservation) => (
               <div className="card" style={{ width: '18rem' }} key={reservation.id}>

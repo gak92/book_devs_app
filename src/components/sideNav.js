@@ -37,7 +37,7 @@ const Sidenav = () => {
             <NavLink exact to="/" activeClassName="activeClicked">
               <CDBSidebarMenuItem icon="home">HOME</CDBSidebarMenuItem>
             </NavLink>
-            {authState.loggedIn ? (
+            {(userAuth || authState.loggedIn) ? (
               <>
                 <NavLink exact to="/developers" activeClassName="activeClicked">
                   <CDBSidebarMenuItem icon="user">DEVELOPERS</CDBSidebarMenuItem>
@@ -45,9 +45,11 @@ const Sidenav = () => {
                 <NavLink exact to="/reservations" activeClassName="activeClicked">
                   <CDBSidebarMenuItem icon="calendar">MY RESERVATIONS</CDBSidebarMenuItem>
                 </NavLink>
-                <NavLink exact to="/adddeveloper" activeClassName="activeClicked">
-                  <CDBSidebarMenuItem icon="plus">ADD DEVELOPER</CDBSidebarMenuItem>
-                </NavLink>
+                {authState.admin ? (
+                  <NavLink exact to="/adddeveloper" activeClassName="activeClicked">
+                    <CDBSidebarMenuItem icon="plus">ADD DEVELOPER</CDBSidebarMenuItem>
+                  </NavLink>
+                ) : null}
                 <NavLink exact to="/deletedeveloper" activeClassName="activeClicked">
                   <CDBSidebarMenuItem icon="trash">DELETE DEVELOPER</CDBSidebarMenuItem>
                 </NavLink>

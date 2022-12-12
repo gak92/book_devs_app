@@ -47,7 +47,7 @@ export const postSignupDetails = createAsyncThunk(
       signedUp: true,
     };
 
-    localStorage.setItem('userAuth', JSON.stringify(authorization));
+    localStorage.setItem('userAuth', authorization);
 
     return currentUser;
   },
@@ -78,7 +78,7 @@ export const postLoginDetails = createAsyncThunk(
       admin: userData.admin,
     };
 
-    localStorage.setItem('userAuth', JSON.stringify(authorization));
+    localStorage.setItem('userAuth', authorization);
 
     return currentUser;
   },
