@@ -21,11 +21,12 @@
   border: #fff 1px solid;
   margin: auto 5px;
   color: #fff;
+  font-weight: 500;
+  padding: 0 15px;
 }
 
 .formEl1 {
   background-color: rgb(150, 191, 16, 1);
-  padding: 0 15px;
 }
 
 .formEl1:focus {
@@ -41,10 +42,11 @@
 ::placeholder {
   color: rgb(255, 255, 255, 0.4);
   text-align: center;
+  font-style: italic;
+  font-weight: 400;
 }
 
 .formEl2 {
   background-color: #fff;
   color: rgb(150, 191, 16, 1);
-  font-weight: 500;
 }
