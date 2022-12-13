@@ -11,12 +11,12 @@ Login and SignUp Form CSS
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100vw;
-  height: 100vh;
 }
 
 .Auth-form {
-  width: 420px;
+  margin-top: 10%;
+  width: 60%;
+  max-width: 400px;
   box-shadow: rgb(0 0 0 / 16%) 1px 1px 10px;
   padding-top: 30px;
   padding-bottom: 20px;
@@ -41,4 +41,28 @@ label {
   font-size: 14px;
   font-weight: 600;
   color: rgb(34, 34, 34);
+}
+
+/* sidebar */
+
+.iaPPJZ {
+  box-shadow: rgb(0 0 0 / 16%) 1px 1px 10px;
+  background-color: #fff;
+  color: #000;
+}
+
+.active .sc-hTBuwn {
+  background-color: #96bf10;
+  color: #fff;
+}
+
+.sc-hTBuwn .fa,
+.sc-cOxWqc .fa {
+  opacity: 1;
+}
+
+@media screen and (max-width: 768px) {
+  .Auth-form {
+    width: 80%;
+  }
 }
