@@ -47,7 +47,7 @@ const AddReservations = () => {
             name="reservationDate"
             value={state.reservationDate}
             onChange={handle}
-            type="text"
+            type="date"
             placeholder="Date"
             className={`${styles.formEl} ${styles.formEl1}`}
           />
