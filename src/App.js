@@ -6,6 +6,7 @@ import Reservations from './components/reservations';
 import DisplayAllDevs from './components/devs/displayAllDevs';
 import Login from './components/authentication/login';
 import Register from './components/authentication/register';
+import AddReservations from './components/AddReservations';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
               <Route path="/adddeveloper" element={<h1>Add Developer</h1>} />
               <Route path="/deletedeveloper" element={<h1>Delete Developer</h1>} />
               <Route path="/reservations" element={<Reservations />} />
+              <Route path="/add_reservation" element={<AddReservations />} />
             </Routes>
           </div>
         </div>
