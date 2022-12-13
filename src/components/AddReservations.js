@@ -8,7 +8,6 @@ const AddReservations = () => {
     name: '',
     reservationDate: '',
     city: '',
-    userId: 1,
     developerId: 1,
   });
 

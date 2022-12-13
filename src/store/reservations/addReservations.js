@@ -5,11 +5,11 @@ const ADD_RESERVATION = 'book_devs/ADD_RESERVATION';
 
 export const addReservation = createAsyncThunk(ADD_RESERVATION, async (
   {
-    name, reservationDate, city, userId, developerId,
+    name, reservationDate, city, developerId,
   },
 ) => {
   const data = {
-    name, reservation_date: reservationDate, city, user_id: userId, developer_id: developerId,
+    name, reservation_date: reservationDate, city, developer_id: developerId,
   };
 
   const userAuth = localStorage.getItem('userAuth');
