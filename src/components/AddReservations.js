@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addReservation } from '../store/reservations/addReservations';
+import styles from './AddReservations.module.css';
 
 const AddReservations = () => {
   const dispatch = useDispatch();
@@ -29,38 +30,45 @@ const AddReservations = () => {
   };
 
   return (
-    <>
-      <h2>ADD RESERVATION</h2>
-      <form onSubmit={handleSubmit}>
-        <input
-          name="name"
-          value={state.name}
-          onChange={handle}
-          type="text"
-          placeholder="Reservation name"
-        />
-        <input
-          name="reservationDate"
-          value={state.reservationDate}
-          onChange={handle}
-          type="text"
-          placeholder="Reservation date"
-        />
-        <input
-          name="city"
-          value={state.city}
-          onChange={handle}
-          type="text"
-          placeholder="City"
-        />
-        <button
-          type="button"
-          onClick={() => dispatch(handleSubmit)}
-        >
-          ADD RESERVATION
-        </button>
-      </form>
-    </>
+    <div className={styles.page}>
+      <div className={styles.page1}>
+        <h5 className={styles.header}>BOOK A RESERVATION WITH A DEVELOPER</h5>
+        <hr />
+        <form onSubmit={handleSubmit}>
+          <input
+            name="name"
+            value={state.name}
+            onChange={handle}
+            type="text"
+            placeholder="Reservation name"
+            className={`${styles.formEl} ${styles.formEl1}`}
+          />
+          <input
+            name="reservationDate"
+            value={state.reservationDate}
+            onChange={handle}
+            type="text"
+            placeholder="Date"
+            className={`${styles.formEl} ${styles.formEl1}`}
+          />
+          <input
+            name="city"
+            value={state.city}
+            onChange={handle}
+            type="text"
+            placeholder="City"
+            className={`${styles.formEl} ${styles.formEl1}`}
+          />
+          <button
+            type="button"
+            onClick={() => dispatch(handleSubmit)}
+            className={`${styles.formEl} ${styles.formEl2}`}
+          >
+            Add Reservation
+          </button>
+        </form>
+      </div>
+    </div>
   );
 };
 export default AddReservations;
