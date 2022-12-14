@@ -63,14 +63,13 @@ const AddReservations = () => {
             className={`${styles.formEl} ${styles.formEl1}`}
           />
           <Link to="/reservations">
-
-          <button
-            type="button"
-            onClick={() => dispatch(handleSubmit)}
-            className={`${styles.formEl} ${styles.formEl2}`}
-          >
-            Add Reservation
-          </button>
+            <button
+              type="button"
+              onClick={() => dispatch(handleSubmit)}
+              className={`${styles.formEl} ${styles.formEl2}`}
+            >
+              Add Reservation
+            </button>
           </Link>
         </form>
       </div>
