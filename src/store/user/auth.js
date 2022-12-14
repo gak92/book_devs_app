@@ -1,31 +1,30 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import axios from "axios";
 
-const signupURL = 'http://127.0.0.1:3000/users';
-const loginURL = 'http://localhost:3000/users/sign_in';
-const logoutURL = 'http://localhost:3000/users/sign_out';
+const signupURL = "http://127.0.0.1:3000/users";
+const loginURL = "http://localhost:3000/users/sign_in";
+const logoutURL = "http://localhost:3000/users/sign_out";
 
 const initialState = {
-  name: '',
-  email: '',
-  userId: '',
-  error: '',
+  name: "",
+  email: "",
+  userId: "",
+  error: "",
   loggedIn: false,
   signedUp: false,
+  admin: false,
 };
 
 // Action Types
-const LOGIN = 'user/login';
-const LOGOUT = 'user/logout';
-const SIGNUP = 'user/signup';
+const LOGIN = "user/login";
+const LOGOUT = "user/logout";
+const SIGNUP = "user/signup";
 
 // Action Creator (User Sign Up)
 export const postSignupDetails = createAsyncThunk(
   SIGNUP,
   async (signupDetails) => {
-    const {
-      fullName, email, password, confirmPassword,
-    } = signupDetails;
+    const { fullName, email, password, confirmPassword } = signupDetails;
     const response = await axios.post(signupURL, {
       user: {
         name: fullName,
@@ -47,10 +46,10 @@ export const postSignupDetails = createAsyncThunk(
       signedUp: true,
     };
 
-    localStorage.setItem('userAuth', authorization);
+    localStorage.setItem("userAuth", authorization);
 
     return currentUser;
-  },
+  }
 );
 
 // Action Creator (User Log In)
@@ -78,30 +77,27 @@ export const postLoginDetails = createAsyncThunk(
       admin: userData.admin,
     };
 
-    localStorage.setItem('userAuth', authorization);
+    localStorage.setItem("userAuth", authorization);
 
     return currentUser;
-  },
+  }
 );
 
 // Action Creator (User Log Out)
-export const userLogout = createAsyncThunk(
-  LOGOUT,
-  async (userAuth) => {
-    // const response =
-    await axios.delete(logoutURL, {
-      headers: {
-        Authorization: userAuth,
-      },
-    });
+export const userLogout = createAsyncThunk(LOGOUT, async (userAuth) => {
+  // const response =
+  await axios.delete(logoutURL, {
+    headers: {
+      Authorization: userAuth,
+    },
+  });
 
-    localStorage.removeItem('userAuth');
-  },
-);
+  localStorage.removeItem("userAuth");
+});
 
 // Reducers using Slice
 export const authSlice = createSlice({
-  name: 'login',
+  name: "login",
   initialState,
   reducers: {},
   extraReducers: {
@@ -133,9 +129,9 @@ export const authSlice = createSlice({
     }),
     [userLogout.fulfilled]: (state, action) => ({
       ...state,
-      name: '',
-      email: '',
-      userId: '',
+      name: "",
+      email: "",
+      userId: "",
       loggedIn: false,
       signedUp: false,
       error: action.error,

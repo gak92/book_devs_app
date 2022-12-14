@@ -5,21 +5,30 @@ import { useDispatch } from "react-redux";
 import { addDev } from "../../store/developers/devs/devActions";
 
 function AddDeveloper() {
-  const [name, setName] = useState("");
-  const [image, setImage] = useState([]);
-  const [description, setDescription] = useState("");
-  const [title, setTitle] = useState("");
-  const [salary, setSalary] = useState("");
-  const [rating, setRating] = useState("");
-  const [valid, setValid] = useState(false);
+  const [state, setState] = useState({
+    name: "",
+    image: [],
+    description: "",
+    title: "",
+    salary: "",
+    rating: "",
+    valid: false,
+  });
 
-  useEffect(() => {
-    if (name && image && title && description && salary && rating) {
-      setValid(true);
-    } else {
-      setValid(false);
-    }
-  }, [name, image, title, description, salary, rating]);
+  const handle = (e) => {
+    setState({
+      ...state,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  // useEffect(() => {
+  //   if (name && image && title && description && salary && rating) {
+  //     setValid(true);
+  //   } else {
+  //     setValid(false);
+  //   }
+  // }, [name, image, title, description, salary, rating]);
 
   const dispatch = useDispatch();
   const Navigate = useNavigate();
@@ -53,7 +62,7 @@ function AddDeveloper() {
           id="name"
           value={name}
           placeholder="Developer Name"
-          onChange={(e) => setName(e.target.value)}
+          onChange={handle}
         />
       </div>
       <div className="mb-3">
@@ -73,7 +82,7 @@ function AddDeveloper() {
           className="form-control"
           id="description"
           placeholder="Developer Description"
-          onChange={(e) => setDescription(e.target.value)}
+          onChange={handle}
         />
       </div>
 
@@ -83,7 +92,7 @@ function AddDeveloper() {
           className="form-control"
           id="title"
           placeholder="Developer Title"
-          onChange={(e) => setTitle(e.target.value)}
+          onChange={handle}
         />
       </div>
 
@@ -93,7 +102,7 @@ function AddDeveloper() {
           className="form-control"
           id="salary"
           placeholder="Developer Salary"
-          onChange={(e) => setSalary(e.target.value)}
+          onChange={handle}
         />
       </div>
 
@@ -103,7 +112,7 @@ function AddDeveloper() {
           className="form-control"
           id="rating"
           placeholder="Developer Rating"
-          onChange={(e) => setRating(e.target.value)}
+          onChange={handle}
         />
       </div>
 
