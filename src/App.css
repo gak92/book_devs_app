@@ -66,3 +66,12 @@ label {
     width: 80%;
   }
 }
+
+.devImage {
+  text-align: center;
+}
+
+.rating {
+  text-align: center;
+  width: 50%;
+}

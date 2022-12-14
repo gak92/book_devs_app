@@ -7,9 +7,16 @@ import { getDevelopers } from '../../store/developers';
 function DisplayAllDevs() {
   const dispatch = useDispatch();
 
+  const userAuth = localStorage.getItem('userAuth');
+
   const fetchDevelopers = async () => {
     const response = await axios
-      .get('http://127.0.0.1:3000/api/v1/developers')
+      .get('http://127.0.0.1:3000/api/v1/developers',
+        {
+          headers: {
+            Authorization: userAuth,
+          },
+        })
       .then((res) => res.data)
       .catch((error) => error.message);
     dispatch(getDevelopers(response));
