@@ -6,13 +6,12 @@ import styles from './AddReservations.module.css';
 
 const AddReservations = () => {
   const { id } = useParams();
-  console.log(id);
   const dispatch = useDispatch();
   const [state, setState] = useState({
     name: '',
     reservationDate: '',
     city: '',
-    developerId: 1,
+    developerId: id,
   });
 
   const handle = (e) => {
@@ -28,7 +27,7 @@ const AddReservations = () => {
       reservationDate: '',
       city: '',
       userId: 1,
-      developerId: 1,
+      developerId: id,
     });
   };
 
