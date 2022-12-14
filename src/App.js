@@ -27,8 +27,8 @@ function App() {
               <Route path="/adddeveloper" element={<h1>Add Developer</h1>} />
               <Route path="/deletedeveloper" element={<h1>Delete Developer</h1>} />
               <Route path="/reservations" element={<Reservations />} />
-              <Route path="/add_reservation" element={<AddReservations />} />
               <Route path="/developers/:dId" element={<DevDtails />} />
+              <Route path="/developers/:id/add_reservation" element={<AddReservations />} />
             </Routes>
           </div>
         </div>
