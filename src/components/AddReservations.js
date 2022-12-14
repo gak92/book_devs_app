@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { addReservation } from '../store/reservations/addReservations';
 import styles from './AddReservations.module.css';
 
@@ -62,6 +62,8 @@ const AddReservations = () => {
             placeholder="City"
             className={`${styles.formEl} ${styles.formEl1}`}
           />
+          <Link to="/reservations">
+
           <button
             type="button"
             onClick={() => dispatch(handleSubmit)}
@@ -69,6 +71,7 @@ const AddReservations = () => {
           >
             Add Reservation
           </button>
+          </Link>
         </form>
       </div>
     </div>
