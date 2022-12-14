@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { useParams } from 'react-router-dom';
 import { addReservation } from '../store/reservations/addReservations';
 import styles from './AddReservations.module.css';
 
 const AddReservations = () => {
+  const { id } = useParams();
+  console.log(id);
   const dispatch = useDispatch();
   const [state, setState] = useState({
     name: '',

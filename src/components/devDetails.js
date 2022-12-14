@@ -1,7 +1,7 @@
 /* eslint-disable max-len */
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { buildStyles, CircularProgressbar } from 'react-circular-progressbar';
 import './styles.css';
 import { fetchDevelopersDetails } from '../store/developersDetails/developersDetails';
@@ -66,7 +66,9 @@ const DevDtails = () => {
           </div>
           <p> Developer Evaluation</p>
           <hr />
-          <button type="button" className="btn btn-primary"> Reserve </button>
+          <Link to="add_reservation" relative="path">
+            <button type="button" className="btn btn-primary"> Reserve </button>
+          </Link>
         </div>
       </div>
     </div>
