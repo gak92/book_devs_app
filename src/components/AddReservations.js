@@ -48,6 +48,7 @@ const AddReservations = () => {
             value={state.reservationDate}
             onChange={handle}
             type="date"
+            min={new Date().toISOString().slice(0, 10)}
             placeholder="Date"
             className={`${styles.formEl} ${styles.formEl1}`}
           />
