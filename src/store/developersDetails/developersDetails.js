@@ -3,11 +3,16 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 const DEVELOPERSDETAILS_URL = 'http://127.0.0.1:3000/api/v1/developers';
 
 const FETCH_DEVELOPERS_DETAILS = 'developers/fetchDevelopersDetails';
+const userAuth = localStorage.getItem('userAuth');
 
 export const fetchDevelopersDetails = createAsyncThunk(
   FETCH_DEVELOPERS_DETAILS,
   async () => {
-    const response = await fetch(DEVELOPERSDETAILS_URL);
+    const response = await fetch(DEVELOPERSDETAILS_URL, {
+      headers: {
+        Authorization: userAuth,
+      },
+    });
     const data = await response.json();
     return data;
   },
