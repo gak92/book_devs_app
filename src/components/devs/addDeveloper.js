@@ -12,7 +12,7 @@ function AddDeveloper() {
   const [rating, setRating] = useState('');
   /* eslint-disable no-unused-vars */
   const [valid, setValid] = useState(false);
-  const [image, setImage] = useState([]);
+  const [image, setImage] = useState('');
 
   useEffect(() => {
     if (name && image && title && description && salary && rating) {
@@ -42,86 +42,101 @@ function AddDeveloper() {
 
   // handle image upload
   const handleUploadImage = (e) => {
-    setImage(e.target.files[0]);
+    setImage(e.target.value);
   };
 
   return (
-    <form onSubmit={submitHandle} className="addDeveloper">
-      <div className="mb-3">
-        <input
-          type="text"
-          className="form-control"
-          id="name"
-          value={name}
-          placeholder="Developer Name"
-          onChange={(e) => {
-            setName(e.target.value);
-          }}
-        />
-      </div>
-      <div className="mb-3">
-        <input
-          type="file"
-          className="form-control"
-          id="photo"
-          placeholder="Developer Picture"
-          onChange={handleUploadImage}
-          multiple
-        />
-      </div>
+    <>
+      <div className="login-box" onSubmit={submitHandle}>
+        <form>
+          <div className="user-box">
+            <input
+              className="form-control"
+              type="text"
+              required
+              id="name"
+              value={name}
+              onChange={(e) => {
+                setName(e.target.value);
+              }}
+            />
+            <label htmlFor="name">name</label>
+          </div>
 
-      <div className="mb-3">
-        <input
-          type="text"
-          className="form-control"
-          id="description"
-          placeholder="Developer Description"
-          onChange={(e) => {
-            setDescription(e.target.value);
-          }}
-        />
-      </div>
+          <div className="user-box">
+            <input
+              type="text"
+              required
+              className="form-control"
+              id="photo"
+              onChange={handleUploadImage}
+              multiple
+            />
+            <label htmlFor="photo">Image</label>
+          </div>
 
-      <div className="mb-3">
-        <input
-          type="text"
-          className="form-control"
-          id="title"
-          placeholder="Developer Title"
-          onChange={(e) => {
-            setTitle(e.target.value);
-          }}
-        />
-      </div>
+          <div className="user-box">
+            <input
+              type="text"
+              className="form-control"
+              required
+              id="title"
+              onChange={(e) => {
+                setTitle(e.target.value);
+              }}
+            />
+            <label htmlFor="title">title </label>
+          </div>
 
-      <div className="mb-3">
-        <input
-          type="number"
-          className="form-control"
-          id="salary"
-          placeholder="Developer Salary"
-          onChange={(e) => {
-            setSalary(e.target.value);
-          }}
-        />
-      </div>
+          <div className="user-box">
+            <input
+              type="text"
+              required
+              className="form-control"
+              id="description"
+              onChange={(e) => {
+                setDescription(e.target.value);
+              }}
+            />
+            <label htmlFor="description">Description</label>
+          </div>
 
-      <div className="mb-3">
-        <input
-          type="number"
-          className="form-control"
-          id="rating"
-          placeholder="Developer Rating"
-          onChange={(e) => {
-            setRating(e.target.value);
-          }}
-        />
-      </div>
+          <div className="user-box">
+            <input
+              type="number"
+              required
+              id="salary"
+              className="form-control"
+              onChange={(e) => {
+                setSalary(e.target.value);
+              }}
+            />
+            <label htmlFor="salary">salary</label>
+          </div>
 
-      <button type="submit" className="btn btn-primary">
-        Add Developer
-      </button>
-    </form>
+          <div className="user-box">
+            <input
+              type="number"
+              required
+              id="rating"
+              className="form-control"
+              onChange={(e) => {
+                setRating(e.target.value);
+              }}
+            />
+            <label htmlFor="rating">rating</label>
+          </div>
+          {/* eslint_disable_anchor-is-valid */}
+          <a href="#">
+            <span />
+            <span />
+            <span />
+            <span />
+            <button type="submit">Add Developer</button>
+          </a>
+        </form>
+      </div>
+    </>
   );
 }
 
