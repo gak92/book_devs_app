@@ -1,14 +1,13 @@
-import "./App.css";
-import "bootstrap/dist/css/bootstrap.min.css";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Sidenav from "./components/sideNav";
-import Reservations from "./components/reservations";
-import DisplayAllDevs from "./components/devs/displayAllDevs";
-import Login from "./components/authentication/login";
-import Register from "./components/authentication/register";
-import Splash from "./components/splash";
-import AddDeveloper from "./components/devs/addDeveloper";
-import AddReservations from "./components/AddReservations";
+import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Sidenav from './components/sideNav';
+import Reservations from './components/reservations';
+import DisplayAllDevs from './components/devs/displayAllDevs';
+import Login from './components/authentication/login';
+import Register from './components/authentication/register';
+import AddDeveloper from './components/devs/addDeveloper';
+import AddReservations from './components/AddReservations';
 import DevDtails from './components/devDetails';
 
 function App() {
