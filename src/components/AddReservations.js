@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { Link, useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { addReservation } from '../store/reservations/addReservations';
 import styles from './AddReservations.module.css';
 
@@ -20,7 +20,9 @@ const AddReservations = () => {
     });
   };
 
-  const handleSubmit = () => {
+  const navigate = useNavigate();
+
+  const handleSubmit = (e) => {
     dispatch(addReservation(state));
     setState({
       name: '',
@@ -29,6 +31,9 @@ const AddReservations = () => {
       userId: 1,
       developerId: id,
     });
+    e.preventDefault();
+
+    navigate('/reservations');
   };
 
   return (
@@ -62,15 +67,12 @@ const AddReservations = () => {
             placeholder="City"
             className={`${styles.formEl} ${styles.formEl1}`}
           />
-          <Link to="/reservations">
-            <button
-              type="button"
-              onClick={() => dispatch(handleSubmit)}
-              className={`${styles.formEl} ${styles.formEl2}`}
-            >
-              Add Reservation
-            </button>
-          </Link>
+          <button
+            type="submit"
+            className={`${styles.formEl} ${styles.formEl2}`}
+          >
+            Add Reservation
+          </button>
         </form>
       </div>
     </div>
