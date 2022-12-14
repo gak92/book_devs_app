@@ -48,6 +48,7 @@ const AddReservations = () => {
             onChange={handle}
             type="text"
             placeholder="Reservation name"
+            required
             className={`${styles.formEl} ${styles.formEl1}`}
           />
           <input
@@ -57,6 +58,7 @@ const AddReservations = () => {
             type="date"
             min={new Date().toISOString().slice(0, 10)}
             placeholder="Date"
+            required
             className={`${styles.formEl} ${styles.formEl1}`}
           />
           <input
@@ -65,6 +67,7 @@ const AddReservations = () => {
             onChange={handle}
             type="text"
             placeholder="City"
+            required
             className={`${styles.formEl} ${styles.formEl1}`}
           />
           <button
