@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render } from '@testing-library/react';
 // import '@testing-library/jest-dom';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
@@ -15,7 +15,7 @@ describe('Test log in user page', () => {
     </Provider>,
   );
 
-  it('renders correctly', () => {  
+  it('renders correctly', () => {
     expect(tree).toMatchSnapshot();
   });
 
