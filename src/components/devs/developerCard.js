@@ -1,13 +1,14 @@
 import React from 'react';
 import './developersComponent.css';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import {
   MDBCard, MDBCardText, MDBCardBody, MDBCardImage, MDBBtn, MDBTypography, MDBIcon,
 } from 'mdb-react-ui-kit';
 
 function DeveloperCard({ developer }) {
   const {
-    id, name, description, image, rating, title, salary_exp,
+    id, name, rating, title,
   } = developer;
 
   return (
@@ -54,5 +55,14 @@ function DeveloperCard({ developer }) {
     </MDBCard>
   );
 }
+
+DeveloperCard.propTypes = {
+  developer: PropTypes.shape({
+    id: PropTypes.number,
+    name: PropTypes.string,
+    rating: PropTypes.number,
+    title: PropTypes.string,
+  }).isRequired,
+};
 
 export default DeveloperCard;
