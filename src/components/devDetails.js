@@ -5,7 +5,6 @@ import { Link, useParams } from 'react-router-dom';
 import { buildStyles, CircularProgressbar } from 'react-circular-progressbar';
 import './styles.css';
 import { fetchDevelopersDetails } from '../store/developersDetails/developersDetails';
-import avator from './avator.png';
 
 const DevDtails = () => {
   const dispatch = useDispatch();
@@ -31,7 +30,7 @@ const DevDtails = () => {
       <br />
       <div className="row">
         <div className="col-sm-8 devImage">
-          <img width="60%" src={avator} alt="developer" />
+          <img width="60%" src={devDetails.image} alt="Developer" />
         </div>
         <div className="col-sm-4 devDetails">
           <h3>
@@ -52,8 +51,8 @@ const DevDtails = () => {
           <br />
           <div className="row rating">
             <CircularProgressbar
-              value={90}
-              text={`${90}%`}
+              value={devDetails.rating}
+              text={`${devDetails.rating}%`}
               background
               backgroundPadding={6}
               styles={buildStyles({
