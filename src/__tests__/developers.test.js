@@ -20,5 +20,4 @@ describe('Test Register page', () => {
   it('Developer list page has text Developers listing', () => {
     expect(tree.findByText('Developers listing')).toBeTruthy();
   });
-
 });

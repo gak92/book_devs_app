@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
+
 import React, { useState, useEffect } from 'react';
 import './addDeveloper.css';
 import { useNavigate } from 'react-router-dom';
@@ -127,6 +129,7 @@ function AddDeveloper() {
             <label htmlFor="rating">rating</label>
           </div>
           {/* eslint_disable_anchor-is-valid */}
+          {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
           <a href="#">
             <span />
             <span />

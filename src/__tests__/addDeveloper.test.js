@@ -20,5 +20,4 @@ describe('Test Register page', () => {
   it('Add Developer page has button Add Developer', () => {
     expect(tree.findByText('Add Developer')).toBeTruthy();
   });
-
 });
