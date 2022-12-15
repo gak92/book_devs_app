@@ -1,5 +1,5 @@
 /* eslint-disable import/prefer-default-export */
-import * as types from "./devTypes";
+import * as types from './devTypes';
 
 const initialState = {
   loading: false,

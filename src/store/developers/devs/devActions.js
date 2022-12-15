@@ -1,9 +1,5 @@
-<<<<<<< HEAD
-import * as types from "./devTypes";
-=======
 import axios from 'axios';
 import * as types from './devTypes';
->>>>>>> dev
 
 const userAuth = localStorage.getItem('userAuth');
 
@@ -36,13 +32,6 @@ const getDevelopers = () => async (dispatch) => {
   }
 };
 
-<<<<<<< HEAD
-const deleteDeveloper = (id) => ({
-  type: types.DELETE_DEVELOPER,
-});
-
-export { getDevelopers, addDeveloper, deleteDeveloper };
-=======
 const addDev = (FormData) => async (dispatch) => {
   try {
     const { data } = await axios({
@@ -63,5 +52,25 @@ const addDev = (FormData) => async (dispatch) => {
   }
 };
 
-export { getDevelopers, addDev };
->>>>>>> dev
+const deleteDev = (id) => async (dispatch) => {
+  try {
+    const config = {
+      headers: {
+        'Content-Type': 'application/json',
+        accept: 'application/json',
+      },
+    };
+    const { data } = await axios.delete(
+      `http://localhost:3000/api/v1/developers/${id}`,
+      config,
+    );
+    dispatch({
+      type: types.DELETE_DEVELOPER,
+      payload: data.id,
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export { getDevelopers, addDev, deleteDev };
