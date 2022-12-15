@@ -1,5 +1,5 @@
-import * as React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import * as React from "react";
+import { useDispatch, useSelector } from "react-redux";
 import {
   CDBSidebar,
   CDBSidebarContent,
@@ -7,14 +7,14 @@ import {
   CDBSidebarHeader,
   CDBSidebarMenu,
   CDBSidebarMenuItem,
-} from 'cdbreact';
+} from "cdbreact";
 
-import { NavLink } from 'react-router-dom';
-import { userLogout } from '../store/user/auth';
-import '../App.css';
+import { NavLink } from "react-router-dom";
+import { userLogout } from "../store/user/auth";
+import "../App.css";
 
 const Sidenav = () => {
-  const userAuth = localStorage.getItem('userAuth');
+  const userAuth = localStorage.getItem("userAuth");
   const dispatch = useDispatch();
 
   const authState = useSelector((state) => state.authentication);
@@ -24,61 +24,93 @@ const Sidenav = () => {
   };
 
   return (
-    <div style={{ display: 'flex', height: '100vh', overflow: 'scroll initial' }}>
+    <div
+      style={{ display: "flex", height: "100vh", overflow: "scroll initial" }}
+    >
       <CDBSidebar className="sidebar" textColor="#000">
         <CDBSidebarHeader prefix={<i className="fa fa-bars fa-large" />}>
-          <a href="/" className="text-decoration-none" style={{ color: 'inherit' }}>
+          <a
+            href="/"
+            className="text-decoration-none"
+            style={{ color: "inherit" }}
+          >
             Book a Developer
           </a>
         </CDBSidebarHeader>
 
         <CDBSidebarContent className="sidebar-content">
           <CDBSidebarMenu>
-            <NavLink exact to="/" activeClassName="activeClicked">
-              <CDBSidebarMenuItem icon="home">HOME</CDBSidebarMenuItem>
-            </NavLink>
-            {(userAuth || authState.loggedIn) ? (
+            {userAuth || authState.loggedIn ? (
               <>
-                <NavLink exact to="/developers" activeClassName="activeClicked">
-                  <CDBSidebarMenuItem icon="user">DEVELOPERS</CDBSidebarMenuItem>
+                <NavLink exact to="/" activeClassName="activeClicked">
+                  <CDBSidebarMenuItem icon="user">
+                    DEVELOPERS
+                  </CDBSidebarMenuItem>
                 </NavLink>
-                <NavLink exact to="/reservations" activeClassName="activeClicked">
-                  <CDBSidebarMenuItem icon="calendar">MY RESERVATIONS</CDBSidebarMenuItem>
+                <NavLink
+                  exact
+                  to="/reservations"
+                  activeClassName="activeClicked"
+                >
+                  <CDBSidebarMenuItem icon="calendar">
+                    MY RESERVATIONS
+                  </CDBSidebarMenuItem>
                 </NavLink>
                 {authState.admin ? (
                   <>
-                    <NavLink exact to="/adddeveloper" activeClassName="activeClicked">
-                      <CDBSidebarMenuItem icon="plus">ADD DEVELOPER</CDBSidebarMenuItem>
+                    <NavLink
+                      exact
+                      to="/adddeveloper"
+                      activeClassName="activeClicked"
+                    >
+                      <CDBSidebarMenuItem icon="plus">
+                        ADD DEVELOPER
+                      </CDBSidebarMenuItem>
                     </NavLink>
-                    <NavLink exact to="/deletedeveloper" activeClassName="activeClicked">
-                      <CDBSidebarMenuItem icon="trash">DELETE DEVELOPER</CDBSidebarMenuItem>
+                    <NavLink
+                      exact
+                      to="/deletedeveloper"
+                      activeClassName="activeClicked"
+                    >
+                      <CDBSidebarMenuItem icon="trash">
+                        DELETE DEVELOPER
+                      </CDBSidebarMenuItem>
                     </NavLink>
                   </>
                 ) : null}
                 <NavLink exact to="/login" activeClassName="activeClicked">
-                  <CDBSidebarMenuItem icon="lock" onClick={logoutUser} backgroundColor="#f44336">
+                  <CDBSidebarMenuItem
+                    icon="lock"
+                    onClick={logoutUser}
+                    backgroundColor="#f44336"
+                  >
                     Logout
                   </CDBSidebarMenuItem>
                 </NavLink>
               </>
-            )
-              : (
-                <>
-                  <NavLink exact to="/login" activeClassName="activeClicked">
-                    <CDBSidebarMenuItem icon="key">LOGIN</CDBSidebarMenuItem>
+            ) : (
+              <>
+                <NavLink exact to="/home" activeClassName="activeClicked">
+                  <CDBSidebarMenuItem icon="home">HOME</CDBSidebarMenuItem>
                   </NavLink>
-                  <NavLink exact to="/register" activeClassName="activeClicked">
-                    <CDBSidebarMenuItem icon="user-plus">REGISTER</CDBSidebarMenuItem>
-                  </NavLink>
-                </>
-              )}
+                  
+                <NavLink exact to="/login" activeClassName="activeClicked">
+                  <CDBSidebarMenuItem icon="key">LOGIN</CDBSidebarMenuItem>
+                </NavLink>
+                <NavLink exact to="/register" activeClassName="activeClicked">
+                  <CDBSidebarMenuItem icon="user-plus">
+                    REGISTER
+                  </CDBSidebarMenuItem>
+                </NavLink>
+              </>
+            )}
           </CDBSidebarMenu>
         </CDBSidebarContent>
 
-        <CDBSidebarFooter style={{ textAlign: 'center' }}>
+        <CDBSidebarFooter style={{ textAlign: "center" }}>
           <div
             style={{
-              padding: '20px 5px',
+              padding: "20px 5px",
             }}
           >
             {authState.loggedIn ? (
