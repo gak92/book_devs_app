@@ -1,4 +1,4 @@
-import * as types from './devTypes';
+import * as types from "./devTypes";
 
 const getDevelopers = (developers) => ({
   type: types.GET_DEVELOPERS_SUCCESS,
@@ -10,4 +10,8 @@ const addDeveloper = (developer) => ({
   payload: developer,
 });
 
-export { getDevelopers, addDeveloper };
+const deleteDeveloper = (id) => ({
+  type: types.DELETE_DEVELOPER,
+});
+
+export { getDevelopers, addDeveloper, deleteDeveloper };
