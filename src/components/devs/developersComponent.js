@@ -1,7 +1,7 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
-import './developersComponent.css';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { useSelector } from "react-redux";
+import "./developersComponent.css";
+import { Link } from "react-router-dom";
 
 function DevelopersComponent() {
   const developers = useSelector((state) => state.developer.developers);
