@@ -1,5 +1,5 @@
 /* eslint-disable import/prefer-default-export */
-import * as types from './devTypes';
+import * as types from "./devTypes";
 
 const initialState = {
   loading: false,
@@ -27,7 +27,9 @@ const developerReducer = (state = initialState, action) => {
     case types.DELETE_DEVELOPER:
       return {
         ...state,
-        cars: state.developers.filter((developer) => developer.id !== action.payload),
+        developers: state.developers.filter(
+          (developer) => developer.id !== action.payload.id
+        ),
         loading: false,
       };
     default:

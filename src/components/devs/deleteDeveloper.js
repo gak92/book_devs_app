@@ -3,22 +3,29 @@ import { useSelector, useDispatch } from "react-redux";
 import { getDevelopers, deleteDev } from "../../store/developers/index";
 
 const DeleteDeveloper = () => {
+  const userAuth = localStorage.getItem("userAuth");
+
   const dispatch = useDispatch();
   const developers = useSelector((state) => state.developer.developers);
 
-  const deleteDeveloperHandler = (id) => {
+  async function deleteDeveloperHandler(id) {
     const requestOptions = {
       method: "DELETE",
-      headers: { "Content-type": "application/json; charset=UTF-8" },
+      headers: {
+        "Content-Type": "application/json",
+        accept: "application/json",
+        Authorization: userAuth,
+      },
     };
 
-    fetch(`http://localhost:3000/api/v1/developers/${id}`, requestOptions).then(
-      dispatch(deleteDev(id))
-    );
-  };
+    await fetch(
+      `http://localhost:3000/api/v1/developers/${id}`,
+      requestOptions
+    ).then(dispatch(deleteDev(id)));
+  }
 
   useEffect(() => {
-    dispatch(getDevelopers());
+   dispatch(getDevelopers());
   }, [dispatch]);
   return (
     <div>
