@@ -24,16 +24,10 @@ const Sidenav = () => {
   };
 
   return (
-    <div
-      style={{ display: 'flex', height: '100vh', overflow: 'scroll initial' }}
-    >
+    <div style={{ display: 'flex', height: '100vh', overflow: 'scroll initial' }}>
       <CDBSidebar className="sidebar" textColor="#000">
         <CDBSidebarHeader prefix={<i className="fa fa-bars fa-large" />}>
-          <a
-            href="/"
-            className="text-decoration-none"
-            style={{ color: 'inherit' }}
-          >
+          <a href="/" className="text-decoration-none" style={{ color: 'inherit' }}>
             Book a Developer
           </a>
         </CDBSidebarHeader>
@@ -43,64 +37,41 @@ const Sidenav = () => {
             <NavLink exact to="/" activeClassName="activeClicked">
               <CDBSidebarMenuItem icon="home">HOME</CDBSidebarMenuItem>
             </NavLink>
-            {userAuth || authState.loggedIn ? (
+            {(userAuth || authState.loggedIn) ? (
               <>
                 <NavLink exact to="/developers" activeClassName="activeClicked">
-                  <CDBSidebarMenuItem icon="user">
-                    DEVELOPERS
-                  </CDBSidebarMenuItem>
+                  <CDBSidebarMenuItem icon="user">DEVELOPERS</CDBSidebarMenuItem>
                 </NavLink>
-                <NavLink
-                  exact
-                  to="/reservations"
-                  activeClassName="activeClicked"
-                >
-                  <CDBSidebarMenuItem icon="calendar">
-                    MY RESERVATIONS
-                  </CDBSidebarMenuItem>
+                <NavLink exact to="/reservations" activeClassName="activeClicked">
+                  <CDBSidebarMenuItem icon="calendar">MY RESERVATIONS</CDBSidebarMenuItem>
                 </NavLink>
-                {userAuth || authState.loggedIn ? (
-                  <NavLink
-                    exact
-                    to="/adddeveloper"
-                    activeClassName="activeClicked"
-                  >
-                    <CDBSidebarMenuItem icon="plus">
-                      ADD DEVELOPER
-                    </CDBSidebarMenuItem>
-                  </NavLink>
+                {authState.admin ? (
+                  <>
+                    <NavLink exact to="/adddeveloper" activeClassName="activeClicked">
+                      <CDBSidebarMenuItem icon="plus">ADD DEVELOPER</CDBSidebarMenuItem>
+                    </NavLink>
+                    <NavLink exact to="/deletedeveloper" activeClassName="activeClicked">
+                      <CDBSidebarMenuItem icon="trash">DELETE DEVELOPER</CDBSidebarMenuItem>
+                    </NavLink>
+                  </>
                 ) : null}
-                <NavLink
-                  exact
-                  to="/deletedeveloper"
-                  activeClassName="activeClicked"
-                >
-                  <CDBSidebarMenuItem icon="trash">
-                    DELETE DEVELOPER
-                  </CDBSidebarMenuItem>
-                </NavLink>
                 <NavLink exact to="/login" activeClassName="activeClicked">
-                  <CDBSidebarMenuItem
-                    icon="lock"
-                    onClick={logoutUser}
-                    backgroundColor="#f44336"
-                  >
+                  <CDBSidebarMenuItem icon="lock" onClick={logoutUser} backgroundColor="#f44336">
                     Logout
                   </CDBSidebarMenuItem>
                 </NavLink>
               </>
-            ) : (
-              <>
-                <NavLink exact to="/login" activeClassName="activeClicked">
-                  <CDBSidebarMenuItem icon="key">LOGIN</CDBSidebarMenuItem>
-                </NavLink>
-                <NavLink exact to="/register" activeClassName="activeClicked">
-                  <CDBSidebarMenuItem icon="user-plus">
-                    REGISTER
-                  </CDBSidebarMenuItem>
-                </NavLink>
-              </>
-            )}
+            )
+              : (
+                <>
+                  <NavLink exact to="/login" activeClassName="activeClicked">
+                    <CDBSidebarMenuItem icon="key">LOGIN</CDBSidebarMenuItem>
+                  </NavLink>
+                  <NavLink exact to="/register" activeClassName="activeClicked">
+                    <CDBSidebarMenuItem icon="user-plus">REGISTER</CDBSidebarMenuItem>
+                  </NavLink>
+                </>
+              )}
           </CDBSidebarMenu>
         </CDBSidebarContent>
 

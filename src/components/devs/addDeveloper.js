@@ -46,7 +46,7 @@ function AddDeveloper() {
   };
 
   return (
-    <>
+    <div className="add-dev-container">
       <div className="login-box" onSubmit={submitHandle}>
         <form>
           <div className="user-box">
@@ -136,7 +136,7 @@ function AddDeveloper() {
           </a>
         </form>
       </div>
-    </>
+    </div>
   );
 }
 

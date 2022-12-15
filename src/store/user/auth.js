@@ -5,7 +5,9 @@ const signupURL = 'http://127.0.0.1:3000/users';
 const loginURL = 'http://localhost:3000/users/sign_in';
 const logoutURL = 'http://localhost:3000/users/sign_out';
 
-const initialState = {
+// Initial State, if currentUser is in localStorage, use it
+const userInLocalStorage = localStorage.getItem('currentUser');
+const initialState = userInLocalStorage ? JSON.parse(localStorage.getItem('currentUser')) : {
   name: '',
   email: '',
   userId: '',
@@ -49,6 +51,7 @@ export const postSignupDetails = createAsyncThunk(
     };
 
     localStorage.setItem('userAuth', authorization);
+    localStorage.setItem('currentUser', JSON.stringify(currentUser));
 
     return currentUser;
   },
@@ -80,6 +83,7 @@ export const postLoginDetails = createAsyncThunk(
     };
 
     localStorage.setItem('userAuth', authorization);
+    localStorage.setItem('currentUser', JSON.stringify(currentUser));
 
     return currentUser;
   },
@@ -95,6 +99,7 @@ export const userLogout = createAsyncThunk(LOGOUT, async (userAuth) => {
   });
 
   localStorage.removeItem('userAuth');
+  localStorage.removeItem('currentUser');
 });
 
 // Reducers using Slice

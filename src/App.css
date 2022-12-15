@@ -61,6 +61,52 @@ label {
   opacity: 1;
 }
 
+button.book-now-btn{
+  background-color: #96bf10;
+  font-size: 20px;
+  outline: 1px solid #96bf10;
+  border-radius: 5px;
+  padding: 5px 10px;
+  border: none;
+}
+
+button.book-now-btn:hover{
+  background-color: #fff;
+  color: #96bf10;
+  border: 1px solid #96bf10;
+}
+
+button.book-now-btn a{
+  color: #fff;
+}
+
+/*  rec dot and arrow */
+button.rec-dot:hover {
+  box-shadow: 0 0 1px 4px var(--primary-color);
+}
+
+button.rec-dot_active,
+button.rec-dot:focus {
+  box-shadow: 0 0 1px 4px #96bf10;
+}
+
+button.rec.rec-arrow:hover,
+button.rec.rec-arrow:focus {
+  background-color: #96bf10;
+}
+
+button.rec.rec-arrow {
+  background-color: #96bf10;
+}
+
+button.rec.rec-arrow:disabled {
+  background-color: #c1caa3;
+}
+
+button.book-now-btn:hover a{
+  color: #96bf10;
+}
+
 @media screen and (max-width: 768px) {
   .Auth-form {
     width: 80%;
