@@ -12,6 +12,7 @@ const initialState = {
   error: '',
   loggedIn: false,
   signedUp: false,
+  admin: false,
 };
 
 // Action Types
@@ -85,19 +86,16 @@ export const postLoginDetails = createAsyncThunk(
 );
 
 // Action Creator (User Log Out)
-export const userLogout = createAsyncThunk(
-  LOGOUT,
-  async (userAuth) => {
-    // const response =
-    await axios.delete(logoutURL, {
-      headers: {
-        Authorization: userAuth,
-      },
-    });
+export const userLogout = createAsyncThunk(LOGOUT, async (userAuth) => {
+  // const response =
+  await axios.delete(logoutURL, {
+    headers: {
+      Authorization: userAuth,
+    },
+  });
 
-    localStorage.removeItem('userAuth');
-  },
-);
+  localStorage.removeItem('userAuth');
+});
 
 // Reducers using Slice
 export const authSlice = createSlice({
