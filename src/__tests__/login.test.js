@@ -6,43 +6,24 @@ import { BrowserRouter } from 'react-router-dom';
 import Login from '../components/authentication/login';
 import store from '../store/configStore';
 
-describe('Test log in user', () => {
-  it('renders correctly', () => {
-    const tree = render(
-      <Provider store={store}>
-        <BrowserRouter>
-          <Login />
-        </BrowserRouter>
-      </Provider>,
-    );
+describe('Test log in user page', () => {
+  const tree = render(
+    <Provider store={store}>
+      <BrowserRouter>
+        <Login />
+      </BrowserRouter>
+    </Provider>,
+  );
+
+  it('renders correctly', () => {  
     expect(tree).toMatchSnapshot();
   });
 
-  // it('Log in page has submit button', () => {
-  //   const login = render(
-  //     <>
-  //       <Provider store={store}>
-  //         <BrowserRouter>
-  //           <Login />
-  //         </BrowserRouter>
-  //       </Provider>
-  //     </>,
-  //   );
+  it('Log in page has submit button', () => {
+    expect(tree.findByText('Submit')).toBeTruthy();
+  });
 
-  //   expect(login.findByText('Submit')).toBeTruthy();
-  // });
-
-  // it('Log in page has a sign up link', () => {
-  //   const login = render(
-  //     <>
-  //       <Provider store={store}>
-  //         <BrowserRouter>
-  //           <Login />
-  //         </BrowserRouter>
-  //       </Provider>
-  //     </>,
-  //   );
-
-  //   expect(login.findByText('Sign up')).toBeTruthy();
-  // });
+  it('Log in page has a sign up link', () => {
+    expect(tree.findByText('Sign up')).toBeTruthy();
+  });
 });
