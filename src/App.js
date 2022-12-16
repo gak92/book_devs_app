@@ -9,6 +9,7 @@ import Register from './components/authentication/register';
 import AddDeveloper from './components/devs/addDeveloper';
 import AddReservations from './components/AddReservations';
 import DevDtails from './components/devDetails';
+import Splash from './components/splash';
 
 function App() {
   return (
@@ -27,7 +28,7 @@ function App() {
               <Route
                 path="/home"
                 element={
-                  <h1 className="text-center">Welcome to Book a Developer</h1>
+                  <Splash />
                 }
               />
               <Route path="/developers" element={<DisplayAllDevs />} />
