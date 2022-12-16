@@ -21,9 +21,9 @@
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 book_devs_api <a name="about-project"></a>
+# 📖 book_devs_app <a name="about-project"></a>
 
-**book_devs_api** is a rails AP1 for book_devs_app.
+**book_devs_app** is a rails AP1 for book_devs_app.
 
 ## 🛠 Built With <a name="built-with"></a>
 
