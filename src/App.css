@@ -1,6 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
 .d-flex {
   display: flex;
   justify-content: space-around;
+}
+
+.brand {
+  font-family: 'Pacifico', cursive;
+  font-size: 1.8rem;
 }
 
 /* ============================================================
