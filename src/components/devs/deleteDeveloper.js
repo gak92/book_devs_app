@@ -1,19 +1,19 @@
-import React, { useEffect, useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { getDevelopers } from "../../store/developers/index";
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { getDevelopers } from '../../store/developers/index';
 
 const DeleteDeveloper = () => {
-  const userAuth = localStorage.getItem("userAuth");
+  const userAuth = localStorage.getItem('userAuth');
 
   const dispatch = useDispatch();
   const developers = useSelector((state) => state.developer.developers);
 
   async function deleteDeveloperHandler(id) {
     fetch(`http://localhost:3000/api/v1/developers/${id}`, {
-      method: "DELETE",
+      method: 'DELETE',
       headers: {
-        "Content-Type": "application/json",
-        accept: "application/json",
+        'Content-Type': 'application/json',
+        accept: 'application/json',
         Authorization: userAuth,
       },
     });
@@ -32,7 +32,9 @@ const DeleteDeveloper = () => {
       </h2>
       <hr />
       <p className="text-center  fs-6 text-white">
-        Would you like to delete a Developer from our website? <br />
+        Would you like to delete a Developer from our website?
+        {' '}
+        <br />
         You can do it with one click!
       </p>
       <table className="table w-50 table-hover">

@@ -1,18 +1,20 @@
-import React, { useState, useEffect } from 'react';
-import './addDeveloper.css';
-import { useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import { addDev } from '../../store/developers/devs/devActions';
+/* eslint-disable */
+
+import React, { useState, useEffect } from "react";
+import "./addDeveloper.css";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { addDev } from "../../store/developers/devs/devActions";
 
 function AddDeveloper() {
-  const [name, setName] = useState('');
-  const [description, setDescription] = useState('');
-  const [title, setTitle] = useState('');
-  const [salary, setSalary] = useState('');
-  const [rating, setRating] = useState('');
+  const [name, setName] = useState("");
+  const [description, setDescription] = useState("");
+  const [title, setTitle] = useState("");
+  const [salary, setSalary] = useState("");
+  const [rating, setRating] = useState("");
   /* eslint-disable no-unused-vars */
   const [valid, setValid] = useState(false);
-  const [image, setImage] = useState('');
+  const [image, setImage] = useState("");
 
   useEffect(() => {
     if (name && image && title && description && salary && rating) {
@@ -28,16 +30,16 @@ function AddDeveloper() {
   const submitHandle = async (e) => {
     e.preventDefault();
     const formData = new FormData();
-    formData.append('name', name);
-    formData.append('image', image);
-    formData.append('description', description);
-    formData.append('title', title);
-    formData.append('salary_exp', salary);
-    formData.append('rating', rating);
-    formData.append('user_id', 1);
+    formData.append("name", name);
+    formData.append("image", image);
+    formData.append("description", description);
+    formData.append("title", title);
+    formData.append("salary_exp", salary);
+    formData.append("rating", rating);
+    formData.append("user_id", 1);
 
     dispatch(addDev(formData));
-    Navigate('/developers');
+    Navigate("/developers");
   };
 
   // handle image upload

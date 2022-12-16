@@ -1,13 +1,10 @@
-import React, { useEffect } from "react";
-import axios from "axios";
-import { useDispatch } from "react-redux";
-import DevelopersComponent from "./developersComponent";
-import { getDevelopers } from "../../store/developers";
+import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import DevelopersComponent from './developersComponent';
+import { getDevelopers } from '../../store/developers';
 
 function DisplayAllDevs() {
   const dispatch = useDispatch();
-
-  const userAuth = localStorage.getItem("userAuth");
 
   useEffect(() => {
     dispatch(getDevelopers());
