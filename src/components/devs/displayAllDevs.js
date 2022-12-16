@@ -1,7 +1,10 @@
 import React, { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import { useDispatch } from 'react-redux';
-import DevelopersComponent from './developersComponent';
+import Carousel from 'react-elastic-carousel';
+import { useDispatch, useSelector } from 'react-redux';
+import DeveloperCard from './developerCard';
+
 import { getDevelopers } from '../../store/developers';
 
 function DisplayAllDevs() {
@@ -9,6 +12,17 @@ function DisplayAllDevs() {
 
   const userAuth = localStorage.getItem('userAuth');
 
+  const navigate = useNavigate();
+
+  if (!userAuth) {
+    navigate('/login');
+  }
+
+  const breakPoints = [
+    { width: 1, itemsToShow: 1 },
+    { width: 750, itemsToShow: 2 },
+    { width: 1050, itemsToShow: 3 },
+  ];
   const fetchDevelopers = async () => {
     const response = await axios
       .get('http://127.0.0.1:3000/api/v1/developers',
@@ -27,13 +41,19 @@ function DisplayAllDevs() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  const developers = useSelector((state) => state.developer.developers);
+
   return (
-    <div className="content">
-      <h1>Here is Developers listing...</h1>
-      <div className="d-flex">
-        <DevelopersComponent />
+    <section>
+      <div>
+        <h4 className="text-center my-5"><b>OUR DEVELOPERS</b></h4>
+        <Carousel className="cards-container" breakPoints={breakPoints}>
+          {developers.map((developer) => (
+            <DeveloperCard key={developer.id} developer={developer} />
+          ))}
+        </Carousel>
       </div>
-    </div>
+    </section>
   );
 }
 

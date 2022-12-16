@@ -1,14 +1,16 @@
-import "./App.css";
-import "bootstrap/dist/css/bootstrap.min.css";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Sidenav from "./components/sideNav";
-import Reservations from "./components/reservations";
-import DisplayAllDevs from "./components/devs/displayAllDevs";
-import Login from "./components/authentication/login";
-import Register from "./components/authentication/register";
-import AddDeveloper from "./components/devs/addDeveloper";
-import AddReservations from "./components/AddReservations";
-import DevDtails from "./components/devDetails";
+import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Sidenav from './components/sideNav';
+import Reservations from './components/reservations';
+import DisplayAllDevs from './components/devs/displayAllDevs';
+import Login from './components/authentication/login';
+import Register from './components/authentication/register';
+import AddDeveloper from './components/devs/addDeveloper';
+import AddReservations from './components/AddReservations';
+import DevDtails from './components/devDetails';
+import Splash from './components/splash';
+
 
 function App() {
   return (
@@ -21,14 +23,15 @@ function App() {
           </div>
           <div className="flex-grow-1">
             <Routes>
-              <Route
-                path="/"
-                element={
-                  <h1 className="text-center">Welcome to Book a Developer</h1>
-                }
-              />
+              <Route path="/" element={<DisplayAllDevs />} />
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
+              <Route
+                path="/home"
+                element={
+                  <Splash />
+                }
+              />
               <Route path="/developers" element={<DisplayAllDevs />} />
               <Route path="/adddeveloper" element={<AddDeveloper />} />
               <Route
