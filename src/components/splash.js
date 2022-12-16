@@ -10,7 +10,8 @@ function Splash() {
           <b>Book a Developer</b>
         </h1>
         <p className="text-center mx-5 fs-3 fw-bold" style={{ color: '#96bf10', textShadow: '2px 2px #FFF' }}>
-          Book a Developer is a web application that allows users to book a developer for a specific time and date. 
+          Book a Developer is a web application that allow users to book a
+          developer for a specific time and date.
           Users espectially recriuters can book a developer for an interview.
         </p>
       </div>

@@ -23,38 +23,34 @@
 
 # 📖 book_devs_app <a name="about-project"></a>
 
-**book_devs_app** is a rails AP1 for book_devs_app.
+**book_devs_app** is a web application that allow users to book a developer for a specific time and date. Users espectially recriuters can book a developer for an interview.
 
 ## 🛠 Built With <a name="built-with"></a>
 
-  - [Ruby](https://www.ruby-lang.org/en/)
-  - [Ruby on Rails](https://rubyonrails.org/)
-  - [PostgreSQL](https://www.postgresql.org/)
-  - [RSpec](https://rspec.info/)
+  - [React](https://reactjs.org/)
+  - [Redux](https://redux.js.org/)
+  - [React-elastic-carousel](https://www.npmjs.com/package/react-elastic-carousel)
+  - [React-Redux](https://react-redux.js.org/)
+  - [React-Router](https://reactrouter.com/)
 
 ### Tech Stack <a name="tech-stack"></a>
 
 <details>
   <summary>Client</summary>
   <ul>
-    <li><a href="https://rubyonrails.org/">Ruby on Rails</a></li>
-    <li><a href="https://www.ruby-lang.org/en/">Ruby</a></li>
+    <li><a href="https://rubyonrails.org/">React</a></li>
+    <li><a href="https://www.ruby-lang.org/en/">Redux</a></li>
   </ul>
 </details>
 
 <details>
   <summary>Server</summary>
   <ul>
-    <li><a href="https://render.com/">Render</a></li>
+    <li><a href="https://netlify.com/">Netlify</a></li>
   </ul>
 </details>
 
 <details>
-<summary>Database</summary>
-  <ul>
-    <li><a href="https://www.postgresql.org/">PostgreSQL</a></li>
-  </ul>
-</details>
 
 <!-- GETTING STARTED -->
 
@@ -62,40 +58,22 @@
 
 To get a local copy up and running, follow these steps.
 
-If you dont have Ruby installed on your computer, you can download it from [here](https://www.ruby-lang.org/en/downloads/).
-
-If you dont have Rails installed on your computer, you can download it from [here](https://rubyonrails.org/).
-
-If you dont have PostgreSQL installed on your computer, you can download it from [here](https://www.postgresql.org/download/).
-
 ### Prerequisites
 
-- Ruby: v3.1.2
-- Rails: v7.0.1
-- PostgreSQL: v14.5
+- React
+- React-Redux
+- @reduxjs/toolkit
+- Node.js
+- React-elastic-carousel
 
 ### Setup
 
 If you have installed git you can clone the code to your machine, or download a ZIP of all the files directly.
 
-[Download the ZIP from this location](https://github.com/gak92/book_devs_api/archive/refs/heads/main.zip), or run the following [git](https://git-scm.com/downloads) command to clone the files to your machine:
+[Download the ZIP from this location](https://github.com/gak92/book_devs_app/archive/refs/heads/main.zip), or run the following [git](https://git-scm.com/downloads) command to clone the files to your machine:
 
-- [ ] Once the files are on your machine, open the _blog-app_ folder in your code editor.
-Run the following command in your terminal to install the required gems and run the application:
-
-- [ ] Open the config/database.yml file in the project directory and change the username and password to your PostgreSQL username and password.
-Edit the default section of the file to look like this:
-    
-```
-  default: &default
-  adapter: postgresql
-  encoding: unicode
-  # For details on connection pooling, see Rails configuration guide
-  # http://guides.rubyonrails.org/configuring.html#database-pooling
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: <your PostgreSQL role username>
-  password: <your PostgreSQL role password>
-
+```sh
+git clone https://github.com/gak92/book_devs_app.git
 ```
 
 ### Install
@@ -103,29 +81,15 @@ Edit the default section of the file to look like this:
 `NOTE:` _You may need to run this command in the project directory to install the required gems and run the application:_
 
 ```
-bundle install
+npm i --legacy-peer-deps
 ```
 
 ### Usage
 
-To run the project, execute the following command:
-
-1. Create the database with:
+To run the project, execute the command below:
 
 ```sh
-rails db:create
-```
-
-2. Run the migrations with:
-
-```sh
-rails db:migrate
-```
-
-3. Start the development server with:
-
-```sh
-rails server
+  npm start
 ```
 
 4. Open the app in your browser at http://localhost:3000
@@ -135,7 +99,7 @@ rails server
 To run tests, run the following command:
 
 ```sh
-  bundle exec rspec
+  npm run test
 ```
 
 ### Deployment
@@ -148,20 +112,12 @@ You can deploy this project using:
   git push heroku main
 ```
 
-2. Or deploy to Render
+2. Or deploy to Netlify
 
 ```sh
-  git push render main
+  git push netlify main
 ```
 <!-- how to use the api -->
-
-###  API Documentation  <a name="api-documentation"></a>
-
-- [ ] To get all greetings, send a GET request to the following URL:
-
-```
-  https://book_devs_app.herokuapp.com/api/v1/greetings.json
-```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -206,7 +162,7 @@ You can deploy this project using:
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](https://github.com/gak92/book_devs_api/issues).
+Feel free to check the [issues page](https://github.com/gak92/book_devs_app/issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

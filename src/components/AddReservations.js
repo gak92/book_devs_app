@@ -34,6 +34,7 @@ const AddReservations = () => {
     e.preventDefault();
 
     navigate('/reservations');
+    window.location.reload();
   };
 
   return (

@@ -1,44 +1,46 @@
-import React from "react";
-import { render } from "@testing-library/react";
-import { Provider } from "react-redux";
-import { BrowserRouter } from "react-router-dom";
-import AddDeveloper from "../components/devs/addDeveloper";
-import store from "../store/configStore";
-import userEvent from "@testing-library/user-event";
+import React from 'react';
+import { render } from '@testing-library/react';
+import { Provider } from 'react-redux';
+import { BrowserRouter } from 'react-router-dom';
+import userEvent from '@testing-library/user-event';
+import AddDeveloper from '../components/devs/addDeveloper';
+import store from '../store/configStore';
 
-describe("Test Register page", () => {
+/* eslint-disable */
+
+describe('Test Register page', () => {
   const tree = render(
     <Provider store={store}>
       <BrowserRouter>
         <AddDeveloper />
       </BrowserRouter>
-    </Provider>
+    </Provider>,
   );
-  it("renders correctly", () => {
+  it('renders correctly', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it("Add Developer page has button Add Developer", () => {
-    expect(tree.findByText("Add Developer")).toBeTruthy();
+  it('Add Developer page has button Add Developer', () => {
+    expect(tree.findByText('Add Developer')).toBeTruthy();
   });
 
-  test("Add Developer page has name input ", () => {
+  test('Add Developer page has name input ', () => {
     render(<AddDeveloper />);
-    userEvent.type(screen.getByRole("textbox", { name: /title/i }));
+    userEvent.type(screen.getByRole('textbox', { name: /title/i }));
   });
 
-  it("Add Developer page has description input ", () => {
+  it('Add Developer page has description input ', () => {
     render(<AddDeveloper />);
-    userEvent.type(screen.getByRole("textbox", { name: /description/i }));
+    userEvent.type(screen.getByRole('textbox', { name: /description/i }));
   });
 
-  it("Add Developer page has salary input ", () => {
+  it('Add Developer page has salary input ', () => {
     render(<AddDeveloper />);
-    userEvent.type(screen.getByRole("spinbutton", { name: /salary/i }));
+    userEvent.type(screen.getByRole('spinbutton', { name: /salary/i }));
   });
 
-  it("Add Developer page has rating input ", () => {
+  it('Add Developer page has rating input ', () => {
     render(<AddDeveloper />);
-    userEvent.type(screen.getByRole("spinbutton", { name: /rating/i }));
+    userEvent.type(screen.getByRole('spinbutton', { name: /rating/i }));
   });
 });

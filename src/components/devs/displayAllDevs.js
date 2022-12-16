@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
 import Carousel from 'react-elastic-carousel';
 import DeveloperCard from './developerCard';
 import { getDevelopers } from '../../store/developers';
@@ -22,18 +21,6 @@ function DisplayAllDevs() {
     { width: 750, itemsToShow: 2 },
     { width: 1050, itemsToShow: 3 },
   ];
-  const fetchDevelopers = async () => {
-    const response = await axios
-      .get('http://127.0.0.1:3000/api/v1/developers',
-        {
-          headers: {
-            Authorization: userAuth,
-          },
-        })
-      .then((res) => res.data)
-      .catch((error) => error.message);
-    dispatch(getDevelopers(response));
-  };
 
   useEffect(() => {
     dispatch(getDevelopers());

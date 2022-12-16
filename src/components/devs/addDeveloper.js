@@ -41,6 +41,7 @@ function AddDeveloper() {
 
     dispatch(addDev(formData));
     Navigate("/developers");
+    window.location.reload();
   };
 
   // handle image upload

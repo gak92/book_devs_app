@@ -139,3 +139,8 @@ button.book-now-btn:hover a {
   text-align: center;
   width: 50%;
 }
+
+.delete-dev-container {
+  background-color: #96bf10;
+  height: 100vh;
+}

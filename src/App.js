@@ -12,8 +12,6 @@ import DevDtails from './components/devDetails';
 import DeleteDeveloper from './components/devs/deleteDeveloper';
 import Splash from './components/splash';
 
-
-
 function App() {
   return (
     <div className="App">
