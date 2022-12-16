@@ -49,7 +49,7 @@ function AddDeveloper() {
   };
 
   return (
-    <>
+    <div className="add-dev-container">
       <div className="login-box" onSubmit={submitHandle}>
         <form>
           <div className="user-box">
@@ -122,6 +122,8 @@ function AddDeveloper() {
               type="number"
               required
               id="rating"
+              minLength={1}
+              maxLength={5}
               className="form-control"
               onChange={(e) => {
                 setRating(e.target.value);
@@ -140,7 +142,7 @@ function AddDeveloper() {
           </a>
         </form>
       </div>
-    </>
+    </div>
   );
 }
 

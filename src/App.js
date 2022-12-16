@@ -10,6 +10,8 @@ import AddDeveloper from './components/devs/addDeveloper';
 import AddReservations from './components/AddReservations';
 import DevDtails from './components/devDetails';
 import DeleteDeveloper from './components/devs/deleteDeveloper';
+import Splash from './components/splash';
+
 
 
 function App() {
@@ -23,14 +25,15 @@ function App() {
           </div>
           <div className="flex-grow-1">
             <Routes>
-              <Route
-                path="/"
-                element={
-                  <h1 className="text-center">Welcome to Book a Developer</h1>
-                }
-              />
+              <Route path="/" element={<DisplayAllDevs />} />
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
+              <Route
+                path="/home"
+                element={
+                  <Splash />
+                }
+              />
               <Route path="/developers" element={<DisplayAllDevs />} />
               <Route path="/adddeveloper" element={<AddDeveloper />} />
               <Route path="/deletedeveloper" element={<DeleteDeveloper />} />

@@ -2,9 +2,9 @@ html {
   height: 70%;
 }
 
-body {
-  margin: 0;
-  padding: 0;
+.add-dev-container {
+  width: 100%;
+  height: 100%;
   font-family: sans-serif;
   background: rgb(150, 191, 16, 1);
 }
