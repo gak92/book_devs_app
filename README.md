@@ -25,7 +25,11 @@
 
 **book_devs_app** is a web application that allow users to book a developer for a specific time and date. Users espectially recriuters can book a developer for an interview.
 
+# Back-end API:
+https://github.com/gak92/book_devs_api.git
+
 ## Kanban Board:
+https://github.com/users/gak92/projects/1/views/1
 ![image](https://user-images.githubusercontent.com/57154534/204987687-6422f1f3-396a-4b8f-addd-906f633447e5.png)
 
 ## ERD Diagram:
