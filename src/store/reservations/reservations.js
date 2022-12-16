@@ -2,10 +2,8 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
 const RESERVATIONS_URL = 'http://localhost:3000/api/v1/reservations';
-const DEVELOPERS_URL = 'http://localhost:3000/api/v1/developers';
 const FETCH_RESERVATIONS = 'reservations/fetchReservations';
 const DELETE_RESERVATION = 'reservations/deleteReservation';
-const FETCH_DEVELOPER = 'developers/fetchDeveloper';
 const userAuth = localStorage.getItem('userAuth');
 
 export const fetchReservations = createAsyncThunk(
@@ -43,7 +41,7 @@ const initialState = {
 
 export default function reservationsReducer(state = initialState, action) {
   switch (action.type) {
-    case `${FETCH_RESERVATIONS}/pending`: 
+    case `${FETCH_RESERVATIONS}/pending`:
       return {
         ...state,
         status: 'loading',

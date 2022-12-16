@@ -29,10 +29,17 @@ const DevDtails = () => {
       <br />
       <br />
       <div className="row">
-        <div className="col-sm-8 devImage">
-          <img width="60%" src={devDetails.image} alt="Developer" />
+        <div className="col-lg-6 col-sm-5 devImage d-flex justify-content-center align-items-center">
+          <img
+            width="60%"
+            src={devDetails.image}
+            alt="Developer"
+            style={{
+              borderRadius: '50%', width: '300px', height: '300px', objectFit: 'cover',
+            }}
+          />
         </div>
-        <div className="col-sm-4 devDetails">
+        <div className="col-lg-6 col-sm-7 devDetails">
           <h3>
             { devDetails.name }
           </h3>
@@ -51,12 +58,12 @@ const DevDtails = () => {
           <br />
           <div className="row rating">
             <CircularProgressbar
-              value={devDetails.rating}
-              text={`${devDetails.rating}%`}
+              value={(devDetails.rating / 5) * 100}
+              text={`${(devDetails.rating / 5) * 100}%`}
               background
               backgroundPadding={6}
               styles={buildStyles({
-                backgroundColor: '#3e98c7',
+                backgroundColor: '#96bf10',
                 textColor: '#fff',
                 pathColor: '#fff',
                 trailColor: 'transparent',
@@ -66,7 +73,10 @@ const DevDtails = () => {
           <p> Developer Evaluation</p>
           <hr />
           <Link to="add_reservation" relative="path">
-            <button type="button" className="btn btn-primary"> Reserve </button>
+            <button type="button" className="btn" style={{ backgroundColor: '#96bf10', color: '#fff' }}>
+              Reserve
+              {' '}
+            </button>
           </Link>
         </div>
       </div>

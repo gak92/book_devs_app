@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Carousel from 'react-elastic-carousel';
 import { useDispatch, useSelector } from 'react-redux';
@@ -10,6 +11,12 @@ function DisplayAllDevs() {
   const dispatch = useDispatch();
 
   const userAuth = localStorage.getItem('userAuth');
+
+  const navigate = useNavigate();
+
+  if (!userAuth) {
+    navigate('/login');
+  }
 
   const breakPoints = [
     { width: 1, itemsToShow: 1 },

@@ -1,5 +1,5 @@
-import * as React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import * as React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import {
   CDBSidebar,
   CDBSidebarContent,
@@ -7,14 +7,14 @@ import {
   CDBSidebarHeader,
   CDBSidebarMenu,
   CDBSidebarMenuItem,
-} from "cdbreact";
+} from 'cdbreact';
 
-import { NavLink } from "react-router-dom";
-import { userLogout } from "../store/user/auth";
-import "../App.css";
+import { NavLink } from 'react-router-dom';
+import { userLogout } from '../store/user/auth';
+import '../App.css';
 
 const Sidenav = () => {
-  const userAuth = localStorage.getItem("userAuth");
+  const userAuth = localStorage.getItem('userAuth');
   const dispatch = useDispatch();
 
   const authState = useSelector((state) => state.authentication);
@@ -25,14 +25,14 @@ const Sidenav = () => {
 
   return (
     <div
-      style={{ display: "flex", height: "100vh", overflow: "scroll initial" }}
+      style={{ display: 'flex', height: '100vh', overflow: 'scroll initial' }}
     >
       <CDBSidebar className="sidebar" textColor="#000">
         <CDBSidebarHeader prefix={<i className="fa fa-bars fa-large" />}>
           <a
             href="/"
             className="text-decoration-none"
-            style={{ color: "inherit" }}
+            style={{ color: 'inherit' }}
           >
             Book a Developer
           </a>
@@ -42,7 +42,7 @@ const Sidenav = () => {
           <CDBSidebarMenu>
             {userAuth || authState.loggedIn ? (
               <>
-                <NavLink exact to="/" activeClassName="activeClicked">
+                <NavLink exact to="/">
                   <CDBSidebarMenuItem icon="user">
                     DEVELOPERS
                   </CDBSidebarMenuItem>
@@ -50,7 +50,6 @@ const Sidenav = () => {
                 <NavLink
                   exact
                   to="/reservations"
-                  activeClassName="activeClicked"
                 >
                   <CDBSidebarMenuItem icon="calendar">
                     MY RESERVATIONS
@@ -61,7 +60,6 @@ const Sidenav = () => {
                     <NavLink
                       exact
                       to="/adddeveloper"
-                      activeClassName="activeClicked"
                     >
                       <CDBSidebarMenuItem icon="plus">
                         ADD DEVELOPER
@@ -70,7 +68,6 @@ const Sidenav = () => {
                     <NavLink
                       exact
                       to="/deletedeveloper"
-                      activeClassName="activeClicked"
                     >
                       <CDBSidebarMenuItem icon="trash">
                         DELETE DEVELOPER
@@ -78,7 +75,7 @@ const Sidenav = () => {
                     </NavLink>
                   </>
                 ) : null}
-                <NavLink exact to="/login" activeClassName="activeClicked">
+                <NavLink exact to="/login">
                   <CDBSidebarMenuItem
                     icon="lock"
                     onClick={logoutUser}
@@ -90,14 +87,14 @@ const Sidenav = () => {
               </>
             ) : (
               <>
-                <NavLink exact to="/home" activeClassName="activeClicked">
+                <NavLink exact to="/home">
                   <CDBSidebarMenuItem icon="home">HOME</CDBSidebarMenuItem>
-                  </NavLink>
-                  
-                <NavLink exact to="/login" activeClassName="activeClicked">
+                </NavLink>
+
+                <NavLink exact to="/login">
                   <CDBSidebarMenuItem icon="key">LOGIN</CDBSidebarMenuItem>
                 </NavLink>
-                <NavLink exact to="/register" activeClassName="activeClicked">
+                <NavLink exact to="/register">
                   <CDBSidebarMenuItem icon="user-plus">
                     REGISTER
                   </CDBSidebarMenuItem>
@@ -107,10 +104,10 @@ const Sidenav = () => {
           </CDBSidebarMenu>
         </CDBSidebarContent>
 
-        <CDBSidebarFooter style={{ textAlign: "center" }}>
+        <CDBSidebarFooter style={{ textAlign: 'center' }}>
           <div
             style={{
-              padding: "20px 5px",
+              padding: '20px 5px',
             }}
           >
             {authState.loggedIn ? (

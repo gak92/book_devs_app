@@ -8,18 +8,18 @@ import {
 
 function DeveloperCard({ developer }) {
   const {
-    id, name, rating, title,
+    id, name, rating, title, image,
   } = developer;
 
   return (
-    <MDBCard style={{ backgroundColor: '#fff', height: '30rem' }} className="mb-4">
+    <MDBCard style={{ backgroundColor: '#fff', height: '32rem' }} className="mb-4">
       <MDBCardBody className="text-center">
         <div className="mt-3 mb-4">
           <MDBCardImage
-            src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava2-bg.webp"
+            src={image}
             className="rounded-circle"
             fluid
-            style={{ width: '100px' }}
+            style={{ width: '200px', height: '200px', objectFit: 'cover' }}
           />
         </div>
         <MDBTypography tag="h4">{title}</MDBTypography>
@@ -62,6 +62,7 @@ DeveloperCard.propTypes = {
     name: PropTypes.string,
     rating: PropTypes.number,
     title: PropTypes.string,
+    image: PropTypes.string,
   }).isRequired,
 };
 
