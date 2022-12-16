@@ -1,1 +1,1 @@
-export { getDevelopers, addDev, deleteDev } from "./devs/devActions";
+export { getDevelopers, addDev } from "./devs/devActions";

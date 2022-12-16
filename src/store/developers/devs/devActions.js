@@ -52,9 +52,4 @@ const addDev = (FormData) => async (dispatch) => {
   }
 };
 
-const deleteDev = (id) => ({
-  type: types.DELETE_DEVELOPER,
-  id,
-});
-
-export { getDevelopers, addDev, deleteDev };
+export { getDevelopers, addDev };

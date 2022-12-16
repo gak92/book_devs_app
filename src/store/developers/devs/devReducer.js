@@ -24,14 +24,6 @@ const developerReducer = (state = initialState, action) => {
         developers: [...state.developers, action.payload],
         loading: false,
       };
-    case types.DELETE_DEVELOPER:
-      return {
-        ...state,
-        developers: state.developers.filter(
-          (developer) => developer.id !== action.payload.id
-        ),
-        loading: false,
-      };
     default:
       return state;
   }
