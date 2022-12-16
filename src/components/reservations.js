@@ -3,7 +3,11 @@ import { useSelector, useDispatch } from 'react-redux';
 import {
   MDBCard, MDBCardBody, MDBCardImage, MDBIcon,
 } from 'mdb-react-ui-kit';
-import { fetchReservations, deleteReservation } from '../store/reservations/reservations';
+import {
+  fetchReservations,
+  deleteReservation,
+} from '../store/reservations/reservations';
+import './reservation.css';
 
 const Reservations = () => {
   const dispatch = useDispatch();
@@ -25,26 +29,27 @@ const Reservations = () => {
 
   return (
     <>
-      { (userAuth || authState.loggedIn) ? (
+      {userAuth || authState.loggedIn ? (
         <div className="overflow-scroll vh-100">
           <div className="d-flex justify-content-between flex-wrap mt-5 mx-5 gap-4 align-items-center">
-            { (reservationStatus === 'succeeded' && reservations.length === 0) && (
-            <h1 className="text-center my-auto">You have no reservations</h1>
+            {reservationStatus === 'succeeded' && reservations.length === 0 && (
+              <h1 className="text-center my-auto">You have no reservations</h1>
             )}
             {reservations.map((reservation) => (
-              <MDBCard style={{ backgroundColor: '#fff', height: '28rem' }} className="mb-4" key={reservation.id}>
+              <MDBCard
+                style={{ backgroundColor: '#fff', height: '28rem' }}
+                className="mb-4"
+                key={reservation.id}
+              >
                 <MDBCardBody className="text-center">
-
                   {/* display reservation name */}
-                  <h5 className="fw-bold mb-3">
-                    {reservation.name}
-                  </h5>
+                  <h5 className="fw-bold mb-3">{reservation.name}</h5>
                   <div className="mt-3 mb-4">
                     <MDBCardImage
-                      src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava2-bg.webp"
-                      className="rounded-circle"
+                      src={reservation.developer.image}
+                      className="rounded-circle image"
                       fluid
-                      style={{ width: '100px' }}
+                      style={{ width: '70px' }}
                     />
                   </div>
 
@@ -89,8 +94,13 @@ const Reservations = () => {
           </div>
         </div>
       ) : (
-        <div className="d-flex justify-content-center align-items-center" style={{ height: '100vh' }}>
-          <h1 className="text-center">Please login to view your reservations</h1>
+        <div
+          className="d-flex justify-content-center align-items-center"
+          style={{ height: '100vh' }}
+        >
+          <h1 className="text-center">
+            Please login to view your reservations
+          </h1>
         </div>
       )}
     </>
