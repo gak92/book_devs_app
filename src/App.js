@@ -9,7 +9,9 @@ import Register from './components/authentication/register';
 import AddDeveloper from './components/devs/addDeveloper';
 import AddReservations from './components/AddReservations';
 import DevDtails from './components/devDetails';
+import DeleteDeveloper from './components/devs/deleteDeveloper';
 import Splash from './components/splash';
+
 
 
 function App() {
@@ -34,10 +36,7 @@ function App() {
               />
               <Route path="/developers" element={<DisplayAllDevs />} />
               <Route path="/adddeveloper" element={<AddDeveloper />} />
-              <Route
-                path="/deletedeveloper"
-                element={<h1>Delete Developer</h1>}
-              />
+              <Route path="/deletedeveloper" element={<DeleteDeveloper />} />
               <Route path="/reservations" element={<Reservations />} />
               <Route path="/developers/:dId" element={<DevDtails />} />
               <Route

@@ -29,6 +29,7 @@
   "scripts": {
     "start": "set PORT=3001 && react-scripts start",
     "build": "react-scripts build",
+
     "test": "react-scripts test --transformIgnorePatterns \"node_modules/(?!@book_devs_app)/\" --env=jsdom",
     "eject": "react-scripts eject"
   },

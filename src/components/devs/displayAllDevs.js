@@ -1,10 +1,9 @@
 import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Carousel from 'react-elastic-carousel';
-import { useDispatch, useSelector } from 'react-redux';
 import DeveloperCard from './developerCard';
-
 import { getDevelopers } from '../../store/developers';
 
 function DisplayAllDevs() {
@@ -37,7 +36,7 @@ function DisplayAllDevs() {
   };
 
   useEffect(() => {
-    fetchDevelopers();
+    dispatch(getDevelopers());
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
