@@ -48,6 +48,7 @@ export const postSignupDetails = createAsyncThunk(
       userId: userData.id,
       loggedIn: true,
       signedUp: true,
+      admin: userData.admin,
     };
 
     localStorage.setItem('userAuth', authorization);
