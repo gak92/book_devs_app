@@ -25,6 +25,9 @@
 
 **book_devs_app** is a web application that allow users to book a developer for a specific time and date. Users espectially recriuters can book a developer for an interview.
 
+## Kanban Board:
+![image](https://user-images.githubusercontent.com/57154534/208083891-dcde7e97-01ad-4ac9-8a48-3fc62bbb8de1.png)
+
 ## 🛠 Built With <a name="built-with"></a>
 
   - [React](https://reactjs.org/)
