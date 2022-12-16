@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Carousel from 'react-elastic-carousel';
 import DeveloperCard from './developerCard';
-import DevelopersComponent from './developersComponent';
 import { getDevelopers } from '../../store/developers';
 
 function DisplayAllDevs() {
