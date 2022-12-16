@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addDev } from "../../store/developers/devs/devActions";
 
+
 function AddDeveloper() {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
@@ -129,6 +130,7 @@ function AddDeveloper() {
             <label htmlFor="rating">rating</label>
           </div>
           {/* eslint_disable_anchor-is-valid */}
+          {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
           <a href="#">
             <span />
             <span />

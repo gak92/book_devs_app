@@ -48,6 +48,7 @@ const addDev = (FormData) => async (dispatch) => {
       payload: data,
     });
   } catch (error) {
+    /* eslint-disable no-console */
     console.log(error);
   }
 };
