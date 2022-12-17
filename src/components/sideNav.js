@@ -23,6 +23,48 @@ const Sidenav = () => {
     dispatch(userLogout(userAuth));
   };
 
+  const sideNavDataGuest = [
+    {
+      id: 1, name: 'HOME', icon: 'home', link: '/home',
+    },
+    {
+      id: 2, name: 'LOGIN', icon: 'key', link: '/login',
+    },
+    {
+      id: 3, name: 'REGISTER', icon: 'user-plus', link: '/register',
+    },
+  ];
+
+  const sideNavDataAdmin = [
+    {
+      id: 1, name: 'DEVELOPERS', icon: 'user', link: '/',
+    },
+    {
+      id: 2, name: 'MY RESERVATIONS', icon: 'calendar', link: '/reservations',
+    },
+    {
+      id: 3, name: 'ADD DEVELOPER', icon: 'plus', link: '/adddeveloper',
+    },
+    {
+      id: 4, name: 'DELETE DEVELOPER', icon: 'trash', link: '/deletedeveloper',
+    },
+    {
+      id: 5, name: 'Logout', icon: 'lock', link: '/login', onClick: logoutUser,
+    },
+  ];
+
+  const sideNavDataUser = [
+    {
+      id: 1, name: 'DEVELOPERS', icon: 'user', link: '/',
+    },
+    {
+      id: 2, name: 'MY RESERVATIONS', icon: 'calendar', link: '/reservations',
+    },
+    {
+      id: 3, name: 'Logout', icon: 'lock', link: '/login', onClick: logoutUser,
+    },
+  ];
+
   return (
     <div
       style={{ display: 'flex', height: '100vh', overflow: 'scroll initial' }}
@@ -42,63 +84,49 @@ const Sidenav = () => {
           <CDBSidebarMenu>
             {userAuth || authState.loggedIn ? (
               <>
-                <NavLink exact to="/">
-                  <CDBSidebarMenuItem icon="user">
-                    DEVELOPERS
-                  </CDBSidebarMenuItem>
-                </NavLink>
-                <NavLink
-                  exact
-                  to="/reservations"
-                >
-                  <CDBSidebarMenuItem icon="calendar">
-                    MY RESERVATIONS
-                  </CDBSidebarMenuItem>
-                </NavLink>
                 {authState.admin ? (
                   <>
-                    <NavLink
-                      exact
-                      to="/adddeveloper"
-                    >
-                      <CDBSidebarMenuItem icon="plus">
-                        ADD DEVELOPER
-                      </CDBSidebarMenuItem>
-                    </NavLink>
-                    <NavLink
-                      exact
-                      to="/deletedeveloper"
-                    >
-                      <CDBSidebarMenuItem icon="trash">
-                        DELETE DEVELOPER
-                      </CDBSidebarMenuItem>
-                    </NavLink>
+                    {sideNavDataAdmin.map((item) => (
+                      <NavLink exact to={item.link} key={item.id}>
+                        <CDBSidebarMenuItem
+                          icon={item.icon}
+                          onClick={item.onClick}
+                          backgroundColor="#f44336"
+                        >
+                          {item.name}
+                        </CDBSidebarMenuItem>
+                      </NavLink>
+                    ))}
                   </>
-                ) : null}
-                <NavLink exact to="/login">
-                  <CDBSidebarMenuItem
-                    icon="lock"
-                    onClick={logoutUser}
-                    backgroundColor="#f44336"
-                  >
-                    Logout
-                  </CDBSidebarMenuItem>
-                </NavLink>
+                ) : (
+                  <>
+                    {sideNavDataUser.map((item) => (
+                      <NavLink exact to={item.link} key={item.id}>
+                        <CDBSidebarMenuItem
+                          icon={item.icon}
+                          onClick={item.onClick}
+                          backgroundColor="#f44336"
+                        >
+                          {item.name}
+                        </CDBSidebarMenuItem>
+                      </NavLink>
+                    ))}
+                  </>
+                )}
               </>
             ) : (
               <>
-                <NavLink exact to="/home">
-                  <CDBSidebarMenuItem icon="home">HOME</CDBSidebarMenuItem>
-                </NavLink>
-
-                <NavLink exact to="/login">
-                  <CDBSidebarMenuItem icon="key">LOGIN</CDBSidebarMenuItem>
-                </NavLink>
-                <NavLink exact to="/register">
-                  <CDBSidebarMenuItem icon="user-plus">
-                    REGISTER
-                  </CDBSidebarMenuItem>
-                </NavLink>
+                {sideNavDataGuest.map((item) => (
+                  <NavLink exact to={item.link} key={item.id}>
+                    <CDBSidebarMenuItem
+                      icon={item.icon}
+                      onClick={item.onClick}
+                      backgroundColor="#f44336"
+                    >
+                      {item.name}
+                    </CDBSidebarMenuItem>
+                  </NavLink>
+                ))}
               </>
             )}
           </CDBSidebarMenu>
