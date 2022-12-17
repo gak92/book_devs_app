@@ -12,10 +12,6 @@ function DisplayAllDevs() {
 
   const navigate = useNavigate();
 
-  if (!userAuth) {
-    navigate('/login');
-  }
-
   const breakPoints = [
     { width: 1, itemsToShow: 1 },
     { width: 750, itemsToShow: 2 },
@@ -23,6 +19,9 @@ function DisplayAllDevs() {
   ];
 
   useEffect(() => {
+    if (!userAuth) {
+      navigate('/login');
+    }
     dispatch(getDevelopers());
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
