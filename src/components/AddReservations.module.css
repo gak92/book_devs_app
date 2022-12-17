@@ -1,5 +1,10 @@
+/* stylelint-disable */
+
 .page {
-  background-color: rgb(150, 191, 16, 1);
+  background: linear-gradient(0, rgb(150, 191, 16, 0.9), rgb(150, 191, 16, 0.9)), url("../assets/teams.jpg");
+  background-size: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
   height: 100vh;
   color: #fff;
   display: flex;
