@@ -1,0 +1,57 @@
+/* stylelint-disable */
+
+.page {
+  background: linear-gradient(0, rgb(150, 191, 16, 0.9), rgb(150, 191, 16, 0.9)), url("../assets/teams.jpg");
+  background-size: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.page1 {
+  align-items: center;
+}
+
+.header {
+  text-align: center;
+}
+
+.formEl {
+  border-radius: 50px;
+  height: 40px;
+  border: #fff 1px solid;
+  margin: auto 5px;
+  color: #fff;
+  font-weight: 500;
+  padding: 0 15px;
+}
+
+.formEl1 {
+  background-color: rgb(150, 191, 16, 1);
+}
+
+.formEl1:focus {
+  border: #fff 3px solid;
+  outline: none;
+}
+
+.formEl1:autofill {
+  -webkit-text-fill-color: #fff;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+::placeholder {
+  color: rgb(255, 255, 255, 0.4);
+  text-align: center;
+  font-style: italic;
+  font-weight: 400;
+}
+
+.formEl2 {
+  background-color: #fff;
+  color: rgb(150, 191, 16, 1);
+}

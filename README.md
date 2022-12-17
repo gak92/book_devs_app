@@ -1,36 +1,3 @@
-<a name="readme-top"></a>
-
-<!--
-HOW TO USE:
-This is an example of how you may give instructions on setting up your project locally.
-
-Modify this file to match your project and remove sections that don't apply.
-
-REQUIRED SECTIONS:
-- Table of Contents
-- About the Project
-  - Built With
-  - Live Demo
-- Getting Started
-- Authors
-- Future Features
-- Contributing
-- Show your support
-- Acknowledgements
-- License
-
-After you're finished please remove all the comments and instructions!
--->
-
-<div align="center">
-
-  <img src="murple_logo.png" alt="logo" width="140"  height="auto" />
-  <br/>
-
-  <h3><b>Microverse README Template</b></h3>
-
-</div>
-
 <!-- TABLE OF CONTENTS -->
 
 # 📗 Table of Contents
@@ -38,8 +5,6 @@ After you're finished please remove all the comments and instructions!
 - [📖 About the Project](#about-project)
   - [🛠 Built With](#built-with)
     - [Tech Stack](#tech-stack)
-    - [Key Features](#key-features)
-  - [🚀 Live Demo](#live-demo)
 - [💻 Getting Started](#getting-started)
   - [Setup](#setup)
   - [Prerequisites](#prerequisites)
@@ -47,184 +12,157 @@ After you're finished please remove all the comments and instructions!
   - [Usage](#usage)
   - [Run tests](#run-tests)
   - [Deployment](#triangular_flag_on_post-deployment)
+  - [API Documentation](#api-documentation)
 - [👥 Authors](#authors)
-- [🔭 Future Features](#future-features)
 - [🤝 Contributing](#contributing)
 - [⭐️ Show your support](#support)
 - [🙏 Acknowledgements](#acknowledgements)
-- [❓ FAQ](#faq)
 - [📝 License](#license)
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 [your_project_name] <a name="about-project"></a>
+# 📖 book_devs_app <a name="about-project"></a>
 
-> Describe your project in 1 or 2 sentences.
+**book_devs_app** is a web application that allow users to book a developer for a specific time and date. Users espectially recriuters can book a developer for an interview.
 
-**[your_project__name]** is a...
+# Back-end API:
+https://github.com/gak92/book_devs_api.git
+
+## Kanban Board:
+https://github.com/users/gak92/projects/1/views/1
+![image](https://user-images.githubusercontent.com/57154534/204987687-6422f1f3-396a-4b8f-addd-906f633447e5.png)
+
+## ERD Diagram:
+<img width="717" alt="image" src="https://user-images.githubusercontent.com/57154534/208123233-1ae09664-e466-4111-bcd8-5e5a999c86bf.png">
 
 ## 🛠 Built With <a name="built-with"></a>
 
-### Tech Stack <a name="tech-stack"></a>
+  - [React](https://reactjs.org/)
+  - [Redux](https://redux.js.org/)
+  - [React-elastic-carousel](https://www.npmjs.com/package/react-elastic-carousel)
+  - [React-Redux](https://react-redux.js.org/)
+  - [React-Router](https://reactrouter.com/)
 
-> Describe the tech stack and include only the relevant sections that apply to your project.
+### Tech Stack <a name="tech-stack"></a>
 
 <details>
   <summary>Client</summary>
   <ul>
-    <li><a href="https://reactjs.org/">React.js</a></li>
+    <li><a href="https://rubyonrails.org/">React</a></li>
+    <li><a href="https://www.ruby-lang.org/en/">Redux</a></li>
   </ul>
 </details>
 
 <details>
   <summary>Server</summary>
   <ul>
-    <li><a href="https://expressjs.com/">Express.js</a></li>
+    <li><a href="https://netlify.com/">Netlify</a></li>
   </ul>
 </details>
 
 <details>
-<summary>Database</summary>
-  <ul>
-    <li><a href="https://www.postgresql.org/">PostgreSQL</a></li>
-  </ul>
-</details>
-
-<!-- Features -->
-
-### Key Features <a name="key-features"></a>
-
-> Describe between 1-3 key features of the application.
-
-- **[key_feature_1]**
-- **[key_feature_2]**
-- **[key_feature_3]**
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- LIVE DEMO -->
-
-## 🚀 Live Demo <a name="live-demo"></a>
-
-> Add a link to your deployed project.
-
-- [Live Demo Link](https://yourdeployedapplicationlink.com)
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- GETTING STARTED -->
 
 ## 💻 Getting Started <a name="getting-started"></a>
 
-> Describe how a new developer could make use of your project.
-
 To get a local copy up and running, follow these steps.
 
 ### Prerequisites
 
-In order to run this project you need:
-
-<!--
-Example command:
-
-```sh
- gem install rails
-```
- -->
+- React
+- React-Redux
+- @reduxjs/toolkit
+- Node.js
+- React-elastic-carousel
 
 ### Setup
 
-Clone this repository to your desired folder:
+If you have installed git you can clone the code to your machine, or download a ZIP of all the files directly.
 
-<!--
-Example commands:
+[Download the ZIP from this location](https://github.com/gak92/book_devs_app/archive/refs/heads/main.zip), or run the following [git](https://git-scm.com/downloads) command to clone the files to your machine:
 
 ```sh
-  cd my-folder
-  git clone git@github.com:myaccount/my-project.git
+git clone https://github.com/gak92/book_devs_app.git
 ```
---->
 
 ### Install
 
-Install this project with:
+`NOTE:` _You may need to run this command in the project directory to install the required gems and run the application:_
 
-<!--
-Example command:
-
-```sh
-  cd my-project
-  gem install
 ```
---->
+npm i --legacy-peer-deps
+```
 
 ### Usage
 
-To run the project, execute the following command:
-
-<!--
-Example command:
+To run the project, execute the command below:
 
 ```sh
-  rails server
+  npm start
 ```
---->
+
+4. Open the app in your browser at http://localhost:3000
 
 ### Run tests
 
 To run tests, run the following command:
 
-<!--
-Example command:
-
 ```sh
-  bin/rails test test/models/article_test.rb
+  npm run test
 ```
---->
 
 ### Deployment
 
 You can deploy this project using:
 
-<!--
-Example:
+1. Deplay to Heroku
 
 ```sh
-
+  git push heroku main
 ```
- -->
+
+2. Or deploy to Netlify
+
+```sh
+  git push netlify main
+```
+<!-- how to use the api -->
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- AUTHORS -->
 
 ## 👥 Authors <a name="authors"></a>
 
-> Mention all of the collaborators of this project.
+👤 **Desmond Owusu Ansah**
 
-👤 **Author1**
+- Github [@Owusu-Desmond](https://github.com/Owusu-Desmond)
+- Twitter [@DesmondOwusuDev](https://twitter.com/DesmondOwusuDev)
+- LinkedIn [@desmond-owusu-ansah](https://www.linkedin.com/in/desmond-owusu-ansah-09274a223/)
+- Dev.to [desmondowusudev](https://dev.to/desmondowusudev)
 
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
+👤 **Ghazanfar Ali**
 
-👤 **Author2**
+- GitHub: [@gak92](https://github.com/gak92)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/ghazanfar-ali-9a4998a/)
 
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
+👤 **Elisha Tetteyfio**
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+- GitHub: [@Elisha-Tetteyfio](https://github.com/Elisha-Tetteyfio)
+- Twitter: [@Elisha](https://twitter.com/Nii_AlYasa)
+- LinkedIn: [Elisha Tetteyfio](https://linkedin.com/in/elisha-tetteyfio)
 
-<!-- FUTURE FEATURES -->
+👤 **Taheny BELGUITH** 
 
-## 🔭 Future Features <a name="future-features"></a>
+- GitHub: [@TahenyBELGUITH](https://github.com/TahenyBELGUITH) 
+- Twitter: [@BelguithTaheny](https://twitter.com/BelguithTaheny) 
+- LinkedIn: [belguith-taheny](https://www.linkedin.com/in/belguith-taheny/) 
 
-> Describe 1 - 3 features you will add to the project.
+👤 **Hamayoun Ali** 
 
-- [ ] **[new_feature_1]**
-- [ ] **[new_feature_2]**
-- [ ] **[new_feature_3]**
+- GitHub: [@Hamayounali](https://github.com/Hamayounali) 
+- Twitter: [@hamayounAli6](https://twitter.com/hamayounAli6) 
+- LinkedIn: [Humayoon Ali](https://www.linkedin.com/in/humayoon-ali-663ba2239) 
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -234,7 +172,7 @@ Example:
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](../../issues/).
+Feel free to check the [issues page](https://github.com/gak92/book_devs_app/issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -252,25 +190,8 @@ If you like this project...
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-> Give credit to everyone who inspired your codebase.
+I would like to thanks [Gregoire Vella on Behance](https://www.behance.net/gregoirevella) the author of the original design,
 
-I would like to thank...
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- FAQ (optional) -->
-
-## ❓ FAQ <a name="faq"></a>
-
-> Add at least 2 questions new developers would ask when they decide to use your project.
-
-- **[Question_1]**
-
-  - [Answer_1]
-
-- **[Question_2]**
-
-  - [Answer_2]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

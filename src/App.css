@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+.d-flex {
+  display: flex;
+  justify-content: space-around;
+}
+
+.brand {
+  font-family: 'Pacifico', cursive;
+  font-size: 1.8rem;
+}
+
+/* home page */
+.home-page {
+  background-image: url("https://blog.hubspot.com/hubfs/Site%20owner%20using%20CSS%20font-size%20property.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 100vh;
+  width: 100%;
+}
+
+/* ============================================================
+Login and SignUp Form CSS
+=============================================================== */
+
+.Auth-form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Auth-form {
+  margin-top: 10%;
+  width: 60%;
+  max-width: 400px;
+  box-shadow: rgb(0 0 0 / 16%) 1px 1px 10px;
+  padding-top: 30px;
+  padding-bottom: 20px;
+  border-radius: 8px;
+  background-color: white;
+}
+
+.Auth-form-content {
+  padding-left: 12%;
+  padding-right: 12%;
+}
+
+.Auth-form-title {
+  text-align: center;
+  margin-bottom: 1em;
+  font-size: 24px;
+  color: rgb(34, 34, 34);
+  font-weight: 800;
+}
+
+label {
+  font-size: 14px;
+  font-weight: 600;
+  color: rgb(34, 34, 34);
+}
+
+/* sidebar */
+
+.iaPPJZ {
+  box-shadow: rgb(0 0 0 / 16%) 1px 1px 10px;
+  background-color: #fff;
+  color: #000;
+}
+
+.active .sc-hTBuwn {
+  background-color: #96bf10;
+  color: #fff;
+}
+
+.sc-hTBuwn .fa,
+.sc-cOxWqc .fa {
+  opacity: 1;
+}
+
+button.book-now-btn {
+  background-color: #96bf10;
+  font-size: 20px;
+  outline: 1px solid #96bf10;
+  border-radius: 5px;
+  padding: 5px 10px;
+  border: none;
+}
+
+button.book-now-btn:hover {
+  background-color: #fff;
+  color: #96bf10;
+  border: 1px solid #96bf10;
+}
+
+button.book-now-btn a {
+  color: #fff;
+}
+
+/*  rec dot and arrow */
+button.rec.rec-arrow {
+  background-color: #96bf10;
+}
+
+button.rec-dot:hover {
+  box-shadow: 0 0 1px 4px var(--primary-color);
+}
+
+button.rec-dot_active,
+button.rec-dot:focus {
+  box-shadow: 0 0 1px 4px #96bf10;
+}
+
+button.rec.rec-arrow:hover,
+button.rec.rec-arrow:focus {
+  background-color: #96bf10;
+}
+
+button.rec.rec-arrow:disabled {
+  background-color: #c1caa3;
+}
+
+button.book-now-btn:hover a {
+  color: #96bf10;
+}
+
+@media screen and (max-width: 768px) {
+  .Auth-form {
+    width: 80%;
+  }
+}
+
+.devImage {
+  text-align: center;
+}
+
+.rating {
+  text-align: center;
+  width: 50%;
+}
+
+.delete-dev-container {
+  background-color: #96bf10;
+  height: 100vh;
+}
