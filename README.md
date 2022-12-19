@@ -60,8 +60,6 @@ https://github.com/users/gak92/projects/1/views/1
   </ul>
 </details>
 
-<details>
-
 <!-- GETTING STARTED -->
 
 ## 💻 Getting Started <a name="getting-started"></a>
