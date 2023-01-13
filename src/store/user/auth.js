@@ -2,8 +2,8 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
 const signupURL = 'http://127.0.0.1:3000/users';
-const loginURL = 'http://localhost:3000/users/sign_in';
-const logoutURL = 'http://localhost:3000/users/sign_out';
+const loginURL = 'https://bookadev.onrender.com/users/sign_in';
+const logoutURL = 'https://bookadev.onrender.com/users/sign_out';
 
 // Initial State, if currentUser is in localStorage, use it
 const userInLocalStorage = localStorage.getItem('currentUser');

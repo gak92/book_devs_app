@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-const RESERVATIONS_URL = 'http://localhost:3000/api/v1/reservations';
+const RESERVATIONS_URL = 'https://bookadev.onrender.com/api/v1/reservations';
 const FETCH_RESERVATIONS = 'reservations/fetchReservations';
 const DELETE_RESERVATION = 'reservations/deleteReservation';
 const userAuth = localStorage.getItem('userAuth');

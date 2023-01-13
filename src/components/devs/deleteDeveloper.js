@@ -9,7 +9,7 @@ const DeleteDeveloper = () => {
   const developers = useSelector((state) => state.developer.developers);
 
   async function deleteDeveloperHandler(id) {
-    fetch(`http://localhost:3000/api/v1/developers/${id}`, {
+    fetch(`https://bookadev.onrender.com/api/v1/developers/${id}`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',

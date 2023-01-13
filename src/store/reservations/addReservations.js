@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
-const url = 'http://localhost:3000/api/v1/reservations';
+const url = 'https://bookadev.onrender.com/api/v1/reservations';
 const ADD_RESERVATION = 'book_devs/ADD_RESERVATION';
 
 export const addReservation = createAsyncThunk(ADD_RESERVATION, async (
